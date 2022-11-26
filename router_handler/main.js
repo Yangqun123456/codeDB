@@ -69,6 +69,7 @@ exports.postCurrentData = (req, res) => {
     const sql = `select * from user where username=?`;
     // 执行 SQL 语句，根据用户名查询用户的信息
     db.query(sql, userinfo.username, (err, results) => {
+        console.log(err);
         // 执行 SQL 语句失败
         if (err) return res.cc(err);
         // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
@@ -111,6 +112,7 @@ exports.historyData = (req, res) => {
     const sql = `select * from user where username=?`;
     // 执行 SQL 语句，根据用户名查询用户的信息
     db.query(sql, userinfo.username, (err, results) => {
+        console.log(err);
         // 执行 SQL 语句失败
         if (err) return res.cc(err);
         // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
@@ -144,6 +146,7 @@ exports.getCurrentData = (req, res) => {
     const sql = `select * from user where username=?`;
     // 执行 SQL 语句，根据用户名查询用户的信息
     db.query(sql, userinfo.username, (err, results) => {
+        console.log(err);
         // 执行 SQL 语句失败
         if (err) return res.cc(err);
         // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
@@ -177,6 +180,7 @@ exports.getTarget = (req, res) => {
     const sql = `select * from user where username=?`;
     // 执行 SQL 语句，根据用户名查询用户的信息
     db.query(sql, userinfo.username, (err, results) => {
+        console.log(err);
         // 执行 SQL 语句失败
         if (err) return res.cc(err);
         // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
@@ -211,6 +215,7 @@ exports.postTarget = (req, res) => {
     const sql = `select * from user where username=?`;
     // 执行 SQL 语句，根据用户名查询用户的信息
     db.query(sql, userinfo.username, (err, results) => {
+        console.log(err);
         // 执行 SQL 语句失败
         if (err) return res.cc(err);
         // 执行 SQL 语句成功，但是获取到的数据条数不等于 1

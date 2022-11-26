@@ -23,6 +23,7 @@ exports.register_schema = {
 exports.postCurrentData_schema = {
     body: {
         username,
+        password,
         tempture: joi.number(),
         humidity: joi.number(),
         illumination: joi.number(),
@@ -35,6 +36,7 @@ exports.postCurrentData_schema = {
 exports.postTarget_schema = {
     body: {
         username,
+        password,
         setAttribute: joi.string(),
         targetValue: joi.number(),
     }
@@ -44,6 +46,7 @@ exports.postTarget_schema = {
 exports.commandEquiment_schema = {
     body: {
         username,
+        password,
         equiment: joi.string(),
         state: joi.bool(),
     }
