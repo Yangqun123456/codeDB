@@ -39,3 +39,12 @@ exports.postTarget_schema = {
         targetValue: joi.number(),
     }
 }
+
+// 验证规则对象
+exports.commandEquiment_schema = {
+    body: {
+        username,
+        equiment: joi.string(),
+        state: joi.bool(),
+    }
+}
