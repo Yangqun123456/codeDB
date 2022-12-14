@@ -1,21 +1,28 @@
 // 导入 express
-const express = require('express');
+const express = require('express')
+const os = require('os');
 // 创建服务器的实例对象
 const app = express()
 
-const joi = require('joi')
+const joi = require('@hapi/joi')
+
+var engines = require('consolidate');
+
+app.set('views', __dirname + '/views');
+app.engine('html', engines.mustache);
+app.set('view engine', 'html');
 
 // 导入并配置 cors 中间件
-const cors = require('cors')
-app.use(cors())
-
+const cors = require('cors');
+app.use(cors());
 // 托管静态html页面
-app.use(express.static('views'))
+app.use(express.static('views'));
 
 // 配置解析表单数据的中间件，注意：这个中间件，只能解析 application/x-www-form-urlencoded 格式的表单数据
 app.use(express.urlencoded({
-    extended: false
-}))
+    limit: '20mb',
+    extended: true
+}));
 
 // 一定要在路由之前，封装 res.cc 函数
 app.use((req, res, next) => {
@@ -27,22 +34,21 @@ app.use((req, res, next) => {
             message: err instanceof Error ? err.message : err,
         })
     }
-    next()
+    next();
 })
 
 // 导入并使用主应用的路由模块
 const mainRounter = require('./router/main')
-app.use('/api',mainRounter);
+app.use(mainRounter);
+// 导入并使用索引的路由模块
+const indexRounter = require('./router/index')
+app.use(indexRounter);
 
-// 定义错误级别的中间件
-app.use((err, req, res, next) => {
-    // 验证失败导致的错误
-    if (err instanceof joi.ValidationError) return res.cc(err)
-    // 未知的错误
-    res.cc(err)
+app.use((req, res, next) => {
+    res.render('404Page.html')
 })
 
 // 启动服务器
-app.listen(4001, () => {
-    console.log(`api server running at http://127.0.0.1:4001`)
+app.listen(4002, () => {
+    console.log(`api server running at http://127.0.0.1:4002`)
 })
