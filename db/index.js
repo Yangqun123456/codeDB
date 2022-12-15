@@ -4,7 +4,7 @@ const db = mysql.createPool({
   host: '127.0.0.1',
   user: 'root',
   password: '12345678',
-  database: 'wxdb_01',
+  database: 'DB_project',
   timezone: "Asia/Shanghai"
 })
 

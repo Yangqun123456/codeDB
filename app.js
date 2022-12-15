@@ -1,10 +1,7 @@
 // 导入 express
 const express = require('express')
-const os = require('os');
 // 创建服务器的实例对象
 const app = express()
-
-const joi = require('@hapi/joi')
 
 var engines = require('consolidate');
 
@@ -37,12 +34,12 @@ app.use((req, res, next) => {
     next();
 })
 
-// 导入并使用主应用的路由模块
-const mainRounter = require('./router/main')
-app.use(mainRounter);
 // 导入并使用索引的路由模块
 const indexRounter = require('./router/index')
 app.use(indexRounter);
+// 导入并使用主应用的路由模块
+const mainRounter = require('./router/main')
+app.use('/api', mainRounter);
 
 app.use((req, res, next) => {
     res.render('404Page.html')
