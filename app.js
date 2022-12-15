@@ -3,6 +3,8 @@ const express = require('express')
 // 创建服务器的实例对象
 const app = express()
 
+const joi = require('@hapi/joi')
+
 var engines = require('consolidate');
 
 app.set('views', __dirname + '/views');
@@ -43,6 +45,16 @@ app.use('/api', mainRounter);
 
 app.use((req, res, next) => {
     res.render('404Page.html')
+})
+
+// 定义错误级别的中间件
+app.use((err, req, res, next) => {
+    // 验证失败导致的错误
+    if (err instanceof joi.ValidationError) return res.cc(err);
+    // 身份认证失败后的错误
+    if (err.name === 'UnauthorizedError') return res.cc('身份认证失败！');
+    // 未知的错误
+    res.cc(err);
 })
 
 // 启动服务器
