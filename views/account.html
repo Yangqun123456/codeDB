@@ -2,23 +2,18 @@
 <html>
 
 <head>
-	<title>Contact</title>
+	<title>Account</title>
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Custom Theme files -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
-	<!-- Custom Theme files -->
+	<link href="css/alertmess.css" rel='stylesheet' type='text/css' />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script
-		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	</script>
 	<!----webfonts---->
 	<link href='http://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,600,700,800,900' rel='stylesheet'
 		type='text/css'>
 </head>
 
 <body>
+	<div id="alertmess"></div>
 	<div class="header">
 		<div class="container">
 			<div class="header_top">
@@ -35,7 +30,7 @@
 					<div class="clearfix"> </div>
 				</ul>
 				<ul class="account">
-					<li><a href="account.html">My Account</a></li>
+					<li><a id="username" href="account.html">My Account</a></li>
 				</ul>
 				<ul class="shopping_cart">
 					<a href="#">
@@ -70,10 +65,10 @@
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav menu1">
-									<li><a href="index.html">Specials</a></li>
+									<li class="active"><a href="index.html">Specials</a></li>
 									<li><a href="fruits.html">Fruits & Veg</a></li>
 									<li><a href="products.html">Food Products</a></li>
-									<li class="active"><a href="contact.html">Contact</a></li>
+									<li><a href="contact.html">Contact</a></li>
 								</ul>
 								<ul class="login">
 									<a href="account.html">
@@ -101,58 +96,35 @@
 		<div class="container">
 			<div class="Product_top">
 				<div class="row content">
-					<div class="col-md-3">
-						<div class="category_box">
-							<h3 class="cate_head">Categories</h3>
-							<ul class="category">
-								<li><a href="#">Arts</a></li>
-								<li><a href="#">Beauty</a></li>
-								<li><a href="#">Books</a></li>
-								<li><a href="#">Cart Software</a></li>
-								<li><a href="#">Electronics</a></li>
-								<li><a href="#">Fashion / Clothing</a></li>
-								<li><a href="#">Food</a></li>
-								<li><a href="#">Furniture</a></li>
-								<li><a href="#">Home Goods</a></li>
-								<li><a href="#">Jewelry</a></li>
-								<li><a href="#">Lingerie</a></li>
-								<li><a href="#">Music</a></li>
-								<li><a href="#">Office Supplies</a></li>
-								<li><a href="#">Printing</a></li>
-								<li><a href="#">Software</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-9">
+					<div class="col-md-12">
 						<div class="breadcrumb">
 							<a href="index.html">Home</a>
-							&gt;&gt; <span class="last">Contact</span>
+							&gt;&gt; <span class="last">Account/Login</span>
 						</div>
-						<div class="contact-form">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<form method="post" action="contact-post.html">
-								<div>
-									<span><label>Name</label></span>
-									<span><input name="userName" type="text" class="textbox"></span>
-								</div>
-								<div>
-									<span><label>E-Mail</label></span>
-									<span><input name="userEmail" type="text" class="textbox"></span>
-								</div>
-								<div>
-									<span><label>Subject</label></span>
-									<span><input name="userPhone" type="text" class="textbox"></span>
-								</div>
-								<div>
-									<span><label>Message</label></span>
-									<span><textarea name="userMsg"> </textarea></span>
-								</div>
-								<div>
-									<span><input type="submit" value="Submit"></span>
-								</div>
-							</form>
+						<div class="account_grid">
+							<div class="col-md-6 login-left">
+								<h3>NEW CUSTOMERS</h3>
+								<p>By creating an account with our store, you will be able to move through the checkout
+									process faster, store multiple shipping addresses, view and track your orders in
+									your account and more.</p>
+								<a class="acount-btn" href="register.html">Creat an Account</a>
+							</div>
+							<div class="col-md-6 login-right">
+								<h3>LOGIN CUSTOMERS</h3>
+								<p>If you have an account with us, please log in.</p>
+								<form>
+									<div>
+										<span>Email Address<label>*</label></span>
+										<input id="login-email" type="text" placeholder="please enter your email address">
+									</div>
+									<div>
+										<span>Password<label>*</label></span>
+										<input id="login-password" type="password" placeholder="Please enter your password">
+									</div>
+									<input id="login-button" type="button" value="Login">
+								</form>
+							</div>
+							<div class="clearfix"> </div>
 						</div>
 					</div>
 				</div>
@@ -224,11 +196,17 @@
 			</div>
 			<div class="clearfix"> </div>
 			<div class="copy">
-				<p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank"
-						href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+				<p>Copyright &copy; 2014.Company name All rights reserved.</p>
 			</div>
 		</div>
 	</div>
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/mine/account.js" type="module"></script>
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	</script>
 </body>
 
 </html>

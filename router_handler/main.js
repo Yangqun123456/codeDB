@@ -39,9 +39,9 @@ exports.login = (req, res) => {
     // 接收表单的数据
     const userinfo = req.body;
     // 定义 SQL 语句
-    const sql = `select * from user where username=?`;
+    const sql = `select * from user where email=?`;
     // 执行 SQL 语句，根据用户名查询用户的信息
-    db.query(sql, userinfo.username, (err, results) => {
+    db.query(sql, userinfo.email, (err, results) => {
         // 执行 SQL 语句失败
         if (err) return res.cc(err);
         // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
@@ -52,7 +52,11 @@ exports.login = (req, res) => {
             results[0].password
         );
         if (!compareResult) return res.cc("密码不正确！");
-        else res.cc("登陆成功！", 0);
+        else res.send({
+            status: 0,
+            message: "登录成功！",
+            username: results[0].username,
+        })
     });
 };
 

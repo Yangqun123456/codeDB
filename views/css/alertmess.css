@@ -1,0 +1,13 @@
+#alertmess {
+    position: fixed;
+    top: 30px;
+    left: 40%;
+    right: 40%;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, .6);
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    z-index: 999;
+    display: none;
+}
