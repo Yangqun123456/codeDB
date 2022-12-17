@@ -13,3 +13,11 @@ exports.account = (req, res) => {
 exports.contact = (req, res) => {
     res.render('./contact.html')
 }
+
+exports.fruits = (req, res) => {
+    res.render('./fruits.html')
+}
+
+exports.products = (req, res) => {
+    res.render('./products.html')
+}
