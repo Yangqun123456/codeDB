@@ -1,4 +1,4 @@
-import { alertmess } from "./basicLibrary.js";
+import { alertmess, init } from "./basicLibrary.js";
 
 function clearInput() {
     $('#register-last-name').val('');
@@ -7,7 +7,7 @@ function clearInput() {
     $('#register-password').val('');
     $('#register-password-confirm').val('');
 }
-
+// 注册按钮
 $('#register-button').click(function () {
     const username = $('#register-last-name').val() + $('#register-first-name').val();
     const email = $('#register-email').val();
@@ -25,3 +25,5 @@ $('#register-button').click(function () {
         } else alert(data.message);
     });
 });
+
+init();

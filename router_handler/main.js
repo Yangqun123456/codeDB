@@ -7,13 +7,13 @@ const bcrypt = require("bcryptjs");
 exports.register = (req, res) => {
     // 获取客户端提交到服务器的用户信息
     const userinfo = req.body;
-    // 定义 SQL 语句，查询用户名是否被占用
-    const sqlStr = "select * from user where username=? or email=?";
-    db.query(sqlStr, [userinfo.username, userinfo.email], (err, results) => {
+    // 定义 SQL 语句，查询邮箱是否被占用
+    const sqlStr = "select * from user where email=?";
+    db.query(sqlStr, userinfo.email, (err, results) => {
         // 执行 SQL 语句失败
         if (err) { res.cc(err); }
-        // 判断用户名是否被占用
-        if (results.length > 0) { return res.cc("用户名或邮箱已被使用，请更换其他用户名或邮箱！"); }
+        // 判断邮箱是否被占用
+        if (results.length > 0) { return res.cc("该邮箱已被使用，请更换其他邮箱！"); }
         // 调用 bcrypt.hashSync() 对密码进行加密
         userinfo.password = bcrypt.hashSync(userinfo.password, 10);
         // 定义插入新用户的 SQL 语句

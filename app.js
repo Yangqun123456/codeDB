@@ -42,6 +42,9 @@ app.use(indexRounter);
 // 导入并使用主应用的路由模块
 const mainRounter = require('./router/main')
 app.use('/api', mainRounter);
+// 导入并使用用户信息的路由模块
+const userInfoRounter = require('./router/userinfo')
+app.use('/userinfo', userInfoRounter);
 
 app.use((req, res, next) => {
     res.render('404Page.html')
