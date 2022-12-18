@@ -1,4 +1,4 @@
-import { alertmess, init } from "./basicLibrary.js";
+import { getUrlParam, alertmess, init } from "./basicLibrary.js";
 
 function clearInput() {
     $('#login-email').val('');
@@ -23,4 +23,6 @@ $('#login-button').click(function () {
     });
 });
 
-init();
+const username = getUrlParam('username');
+const email = getUrlParam('email');
+init(username, email);

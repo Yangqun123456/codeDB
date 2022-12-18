@@ -8,5 +8,6 @@ router.get('/account', index_hander.account)
 router.get('/contact', index_hander.contact)
 router.get('/fruits', index_hander.fruits)
 router.get('/products', index_hander.products)
+router.get('/single', index_hander.single)
 
 module.exports = router

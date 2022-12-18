@@ -1,3 +1,89 @@
-import { alertmess, init } from "./basicLibrary.js";
+import { getUrlParam, alertmess, init, ignoreErrorAttr, correctBuyButtonHref } from "./basicLibrary.js";
 
-init();
+function init_index(username, email) {
+    // 今日精选食物
+    $.get('http://127.0.0.1:4002/api/todayFeaturedFoods', async function (data) {
+        if (data.status === 0) {
+            const foodData = data.data;
+            for (var key = 0; key < ignoreErrorAttr(foodData, 'length'); key++) {
+                if (key < 2) {
+                    $("#featuredFoodList").append(
+                        `<li class="grid1"><img src="${foodData[key].picturePath}" class="img-responsive" alt="" />
+                            <p>${foodData[key].detail}</p>
+                            <div class="price">Price:<span class="actual"> $${foodData[key].price}</span></div>
+                            <div class="but1"><a href="${correctBuyButtonHref(username, email, foodData[key].id)}">Buy Now</a></div>
+                        </li>`
+                    )
+                } else if (key == 2) {
+                    $("#featuredFoodList").append(
+                        `<li class="grid2"><img src="${foodData[key].picturePath}" class="img-responsive" alt="" />
+                            <p>${foodData[key].detail}</p>
+                            <div class="price">Price: <span class="actual">$${foodData[key].price}</span></div>
+                            <div class="but1"><a href="${correctBuyButtonHref(username, email, foodData[key].id)}">Buy Now</a></div>
+                        </li>`
+                    )
+                }
+            }
+            $("#featuredFoodList").append(`<div class="clearfix"> </div>`)
+        }
+    })
+    // 热门食物
+    $.get('http://127.0.0.1:4002/api/popularFoods', async function (data) {
+        if (data.status === 0) {
+            const foodData = data.data;
+            for (var key = 0; key < 4 && key < ignoreErrorAttr(foodData, 'length'); key++) {
+                $("#popularFoodList_1").append(
+                    `<div class="col-md-3">
+                    <div class="content_box"><a href="${correctBuyButtonHref(username, email, foodData[key].id)}">
+                            <div class="view view-fifth">
+                                <img src="${foodData[key].picturePath}" class="img-responsive" alt="" />
+                                <div class="content_box-grid">
+                                    <p class="m_1">${foodData[key].detail}</p>
+                                    <div class="price">Price: <span class="actual">$${foodData[key].price}</span></div>
+                                    <ul class="product_but">
+                                        <li class="but3">Buy</li>
+                                        <li class="like"><span>${foodData[key].likeNumber}</span><i class="like1"> </i></li>
+                                        <div class="clearfix"> </div>
+                                    </ul>
+                                    <div class="mask">
+                                        <div class="info">Quick View</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>`
+                )
+            }
+            for (var key = 4; key < ignoreErrorAttr(foodData, 'length') && key < 8; key++) {
+                $("#popularFoodList_2").append(
+                    `<div class="col-md-3">
+                    <div class="content_box"><a href="${correctBuyButtonHref(username, email, foodData[key].id)}">
+                            <div class="view view-fifth">
+                                <img src="${foodData[key].picturePath}" class="img-responsive" alt="" />
+                                <div class="content_box-grid">
+                                    <p class="m_1">${foodData[key].detail}</p>
+                                    <div class="price">Price: <span class="actual">$${foodData[key].price}</span></div>
+                                    <ul class="product_but">
+                                        <li class="but3">Buy</li>
+                                        <li class="like"><span>${foodData[key].likeNumber}</span><i class="like1"> </i></li>
+                                        <div class="clearfix"> </div>
+                                    </ul>
+                                    <div class="mask">
+                                        <div class="info">Quick View</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>`
+                )
+            }
+        }
+    })
+}
+
+const username = getUrlParam('username');
+const email = getUrlParam('email');
+init(username, email);
+init_index(username, email);

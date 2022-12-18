@@ -9,5 +9,8 @@ const { login_schema, register_schema } = require("../schema/schema");
 
 router.post('/login', expressJoi(login_schema), main_hander.login)
 router.post('/register', expressJoi(register_schema), main_hander.register)
+router.get('/todayFeaturedFoods', main_hander.todayFeaturedFoods)
+router.get('/popularFoods', main_hander.popularFoods)
+router.get('/typeFoods', main_hander.typeFoods)
 
 module.exports = router

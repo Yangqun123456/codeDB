@@ -60,6 +60,56 @@ exports.login = (req, res) => {
     });
 };
 
+exports.todayFeaturedFoods = (req, res) => {
+    const sqlStr = "select * from food where featured=1 order by id limit 3";
+    db.query(sqlStr, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length < 1) return res.cc('当前不存在精选食物')
+        // 用户信息获取成功
+        res.send({
+            status: 0,
+            message: '获取精选食物信息成功!',
+            data: results,
+        })
+    });
+};
+
+exports.popularFoods = (req, res) => {
+    const sqlStr = "select * from food where popular=1 order by id limit 8";
+    db.query(sqlStr, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length < 1) return res.cc('当前不存在热门食物')
+        // 用户信息获取成功
+        res.send({
+            status: 0,
+            message: '获取热门食物信息成功!',
+            data: results,
+        })
+    });
+};
+
+exports.typeFoods = (req, res) => {
+    // 接收表单的数据
+    const userinfo = req.query;
+    const sqlStr = "select * from food where type_id=? order by id limit 8";
+    db.query(sqlStr, userinfo.type_id, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length < 1) return res.cc('当前不存在该类型的食物')
+        // 用户信息获取成功
+        res.send({
+            status: 0,
+            message: '获取指定类型的食物信息成功!',
+            data: results,
+        })
+    });
+};
+
 // 日期格式化
 Date.prototype.Format = function (fmt) {
     var o = {
