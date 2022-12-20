@@ -8,7 +8,7 @@ export function getUrlParam(name) {
 function updateWebsiteHref(username, email) {
     $("a[href='account.html']").attr('href', 'account?username=' + username + '&email=' + email);
     $("a[href='contact.html']").attr('href', 'contact?username=' + username + '&email=' + email);
-    $("a[href='fruits.html']").attr('href', 'fruits?username=' + username + '&email=' + email);
+    $("a[href='menu.html']").attr('href', 'menu?username=' + username + '&email=' + email);
     $("a[href='index.html']").attr('href', 'index?username=' + username + '&email=' + email);
     $("a[href='products.html']").attr('href', 'products?username=' + username + '&email=' + email);
     $("a[href='register.html']").attr('href', 'register?username=' + username + '&email=' + email);

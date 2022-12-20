@@ -19,3 +19,11 @@ exports.register_schema = {
         email,
     },
 }
+
+exports.buyFoods_schema = {
+    body: {
+        email,
+        food_id: joi.number(),
+        food_number: joi.number(),
+    },
+}

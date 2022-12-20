@@ -38,6 +38,7 @@ function init_index(username, email) {
                             <div class="view view-fifth">
                                 <img src="${foodData[key].picturePath}" class="img-responsive" alt="" />
                                 <div class="content_box-grid">
+                                    <p class="m_1" style="font-weight: bold">${foodData[key].name}</p>
                                     <p class="m_1">${foodData[key].detail}</p>
                                     <div class="price">Price: <span class="actual">$${foodData[key].price}</span></div>
                                     <ul class="product_but">
@@ -62,6 +63,7 @@ function init_index(username, email) {
                             <div class="view view-fifth">
                                 <img src="${foodData[key].picturePath}" class="img-responsive" alt="" />
                                 <div class="content_box-grid">
+                                    <p class="m_1" style="font-weight: bold">${foodData[key].name}</p>
                                     <p class="m_1">${foodData[key].detail}</p>
                                     <div class="price">Price: <span class="actual">$${foodData[key].price}</span></div>
                                     <ul class="product_but">
@@ -81,9 +83,38 @@ function init_index(username, email) {
             }
         }
     })
+    // 分类信息
+    $.get('http://127.0.0.1:4002/api/categoryInfo', async function (data) {
+        if (data.status === 0) {
+            const typeData = data.data;
+            for (var key = 0; key < ignoreErrorAttr(typeData, 'length'); key++) {
+                if (username !== null && email !== null) {
+                    $('#category').append(
+                        `<li><a href="menu?username=${username}&email=${email}&type_id=${typeData[key].type_id}">${typeData[key].type}</a></li>`
+                    )
+                } else {
+                    $('#category').append(
+                        `<li><a href="menu?type_id=${typeData[key].type_id}">${typeData[key].type}</a></li>`
+                    )
+                }
+            }
+        }
+    })
 }
 
 const username = getUrlParam('username');
 const email = getUrlParam('email');
 init(username, email);
 init_index(username, email);
+
+// 绑定搜索事件
+$('#searchButton').click(function () {
+    const foodName = $('#search-input').val();
+    $.get('http://127.0.0.1:4002/api/nameFood', { foodName: foodName }, async function (data) {
+        if (data.status === 0) {
+            const foodData = data.data;
+            if (username !== null && email !== null) location.href = 'http://localhost:4002/single?username=' + username + '&email=' + email + '&id=' + foodData.id;
+            else location.href = 'http://localhost:4002/single?id=' + foodData.id;
+        } else alert(data.message);
+    });
+});

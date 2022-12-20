@@ -60,6 +60,87 @@ exports.login = (req, res) => {
     });
 };
 
+// 提交预购食物信息
+exports.buyFoods = (req, res) => {
+    // 接收表单的数据
+    const userinfo = req.body;
+    // 定义 SQL 语句
+    const sql = `select * from user where email=?`;
+    // 执行 SQL 语句，根据用户名查询用户的信息
+    db.query(sql, userinfo.email, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err);
+        // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
+        if (results.length !== 1) return res.cc("用户名不存在！");
+        else {
+            const sql = `select * from orderinfo where email=? and type='reserve' limit 1`;
+            db.query(sql, userinfo.email, (err, results) => {
+                // 执行 SQL 语句失败
+                if (err) return res.cc(err);
+                // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
+                if (results.length !== 1) {
+                    const sql = `insert into orderinfo set ?`;
+                    db.query(sql, {
+                        email: userinfo.email,
+                        datetime: new Date().Format("yyyy-MM-dd HH:mm:ss"),
+                    }, (err, results) => {
+                        // 判断 SQL 语句是否执行成功
+                        if (err) return res.cc(err);
+                        // 判断影响行数是否为 1
+                        if (results.affectedRows !== 1) return res.cc("插入订单失败，请稍后重试！");
+                        else {
+                            const orderId = results.insertId;
+                            const sql = `insert into orderfoods set ?`
+                            db.query(sql, {
+                                id: orderId,
+                                food_id: userinfo.food_id,
+                                foodNumber: userinfo.food_number
+                            }, (err, results) => {
+                                // 判断 SQL 语句是否执行成功
+                                if (err) return res.cc(err);
+                                // 判断影响行数是否为 1
+                                if (results.affectedRows !== 1) return res.cc("插入订单失败，请稍后重试！");
+                                else res.cc("插入预购订单成功", 0);
+                            })
+                        }
+                    });
+                } else {
+                    const orderId = results[0].id;
+                    const sql = `select * from orderfoods where id=? and food_id=? limit 1`
+                    db.query(sql, [orderId, userinfo.food_id], (err, results) => {
+                        // 执行 SQL 语句失败
+                        if (err) { res.cc(err); }
+                        // 判断邮箱是否被占用
+                        if (results.length !== 0) {
+                            const sql = `update orderfoods set foodNumber=foodNumber+? where id=? and food_id=?`
+                            db.query(sql, [userinfo.food_number, orderId, userinfo.food_id], (err, results) => {
+                                // 执行 SQL 语句失败
+                                if (err) return res.cc(err);
+                                // 影响的行数是否等于 1
+                                if (results.affectedRows !== 1) return res.cc("更新预购食物信息失败!");
+                                else res.cc("更新预购食物信息成功!", 0);
+                            });
+                        } else {
+                            const sql = `insert into orderfoods set ?`;
+                            db.query(sql, {
+                                id: orderId,
+                                food_id: userinfo.food_id,
+                                foodNumber: userinfo.food_number
+                            }, (err, results) => {
+                                // 判断 SQL 语句是否执行成功
+                                if (err) return res.cc(err);
+                                // 判断影响行数是否为 1
+                                if (results.affectedRows !== 1) return res.cc("插入订单失败，请稍后重试！");
+                                else res.cc("插入预购订单成功", 0);
+                            });
+                        }
+                    })
+                }
+            })
+        }
+    });
+};
+
 exports.todayFeaturedFoods = (req, res) => {
     const sqlStr = "select * from food where featured=1 order by id limit 3";
     db.query(sqlStr, (err, results) => {
@@ -109,6 +190,58 @@ exports.typeFoods = (req, res) => {
         })
     });
 };
+
+exports.categoryInfo = (req, res) => {
+    const sqlStr = "select * from typeinfo";
+    db.query(sqlStr, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length < 1) return res.cc('当前不存在分类信息')
+        // 用户信息获取成功
+        res.send({
+            status: 0,
+            message: '获取分类信息成功!',
+            data: results,
+        })
+    });
+}
+
+exports.nameFood = (req, res) => {
+    // 接收表单的数据
+    const userinfo = req.query;
+    const sqlStr = "select * from food where name=? order by id limit 1";
+    db.query(sqlStr, userinfo.foodName, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length !== 1) return res.cc('该食物不存在哦！')
+        // 用户信息获取成功
+        res.send({
+            status: 0,
+            message: '获取指定食物信息成功!',
+            data: results[0],
+        })
+    });
+}
+
+exports.idFood = (req, res) => {
+    // 接收表单的数据
+    const userinfo = req.query;
+    const sqlStr = "select * from food where id=? order by id limit 1";
+    db.query(sqlStr, userinfo.food_id, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length !== 1) return res.cc('该食物不存在哦！')
+        // 用户信息获取成功
+        res.send({
+            status: 0,
+            message: '获取指定食物信息成功!',
+            data: results[0],
+        })
+    });
+}
 
 // 日期格式化
 Date.prototype.Format = function (fmt) {

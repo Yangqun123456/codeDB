@@ -789,6 +789,9 @@ i.like1{
 .content_box:hover i.like1{
 	background: url(../images/img-sprite.png)no-repeat -45px -64px;
 }
+i.like1:hover{
+	background: url(../images/img-sprite.png)no-repeat -45px -64px;
+}
 .content_bottom{
 	padding:0.5em 0 2em;
 }
@@ -1065,8 +1068,8 @@ ul.secure li.secure_desc{
    display: block;
 	background: url(../images/label_new.png) no-repeat;
 	text-indent: -9999px;
-	width: 75px;
-	height: 75px;
+	width: 70px;
+	height: 70px;
 }
 .view-fifth1 img {
    -webkit-transition: all 0.3s ease-in-out;
@@ -1136,6 +1139,29 @@ span.actual1 {
 	-o-border-radius: 5px;
 }
 .btn_form form input[type="submit"]:hover {
+	background:#F34D28;
+}
+.btn_form form input[type="button"] {
+	cursor: pointer;
+	border: none;
+	outline: none;
+	display: inline-block;
+	font-size: 0.85em;
+	padding: 10px 34px;
+	background:#fe6847;
+	border-bottom: 4px solid #E94F2D;
+	color: #FFF;
+	text-transform: uppercase;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+}
+.btn_form form input[type="button"]:hover {
 	background:#F34D28;
 }
 ul.add-to-links {

@@ -6,7 +6,7 @@ router.get('/index', index_hander.index)
 router.get('/register', index_hander.register)
 router.get('/account', index_hander.account)
 router.get('/contact', index_hander.contact)
-router.get('/fruits', index_hander.fruits)
+router.get('/menu', index_hander.menu)
 router.get('/products', index_hander.products)
 router.get('/single', index_hander.single)
 

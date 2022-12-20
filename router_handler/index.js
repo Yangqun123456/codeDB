@@ -14,8 +14,8 @@ exports.contact = (req, res) => {
     res.render('./contact.html')
 }
 
-exports.fruits = (req, res) => {
-    res.render('./fruits.html')
+exports.menu = (req, res) => {
+    res.render('./menu.html')
 }
 
 exports.products = (req, res) => {
