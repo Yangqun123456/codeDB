@@ -27,3 +27,10 @@ exports.buyFoods_schema = {
         food_number: joi.number(),
     },
 }
+
+exports.submitOrder_schema = {
+    body: {
+        email,
+        orderId: joi.number(),
+    },
+}

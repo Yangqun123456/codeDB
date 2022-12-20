@@ -141,6 +141,19 @@ exports.buyFoods = (req, res) => {
     });
 };
 
+exports.submitOrder = (req, res) => {
+    // 接收表单的数据
+    const userinfo = req.body;
+    const sql = `update orderinfo set type='submit' datetime=? where id=? and email=?`
+    db.query(sql, [new Date().Format("yyyy-MM-dd HH:mm:ss"), userinfo.orderId, userinfo.email], (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err);
+        // 影响的行数是否等于 1
+        if (results.affectedRows !== 1) return res.cc("提交订单失败!");
+        else res.cc("提交订单成功!", 0);
+    });
+};
+
 exports.todayFeaturedFoods = (req, res) => {
     const sqlStr = "select * from food where featured=1 order by id limit 3";
     db.query(sqlStr, (err, results) => {

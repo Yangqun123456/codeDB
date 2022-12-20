@@ -106,15 +106,3 @@ const username = getUrlParam('username');
 const email = getUrlParam('email');
 init(username, email);
 init_index(username, email);
-
-// 绑定搜索事件
-$('#searchButton').click(function () {
-    const foodName = $('#search-input').val();
-    $.get('http://127.0.0.1:4002/api/nameFood', { foodName: foodName }, async function (data) {
-        if (data.status === 0) {
-            const foodData = data.data;
-            if (username !== null && email !== null) location.href = 'http://localhost:4002/single?username=' + username + '&email=' + email + '&id=' + foodData.id;
-            else location.href = 'http://localhost:4002/single?id=' + foodData.id;
-        } else alert(data.message);
-    });
-});

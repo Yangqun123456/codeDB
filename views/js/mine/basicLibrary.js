@@ -53,6 +53,7 @@ export function correctBuyButtonHref(username, email, id) {
 
 export function init(username, email) {
     if (username !== null) { $('#username').html(username); }
+    if (email === null || username === null) $("a[href='myorder.html']").attr('href', 'account');
     if (email !== null && username !== null) {
         updateWebsiteHref(username, email);
         // 获取用户余额
@@ -64,4 +65,15 @@ export function init(username, email) {
             } else alert(data.message);
         });
     }
+    // 绑定搜索事件
+    $('#searchButton').click(function () {
+        const foodName = $('#search-input').val();
+        $.get('http://127.0.0.1:4002/api/nameFood', { foodName: foodName }, async function (data) {
+            if (data.status === 0) {
+                const foodData = data.data;
+                if (username !== null && email !== null) location.href = 'http://localhost:4002/single?username=' + username + '&email=' + email + '&id=' + foodData.id;
+                else location.href = 'http://localhost:4002/single?id=' + foodData.id;
+            } else alert(data.message);
+        });
+    });
 }
