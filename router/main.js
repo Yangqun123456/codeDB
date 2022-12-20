@@ -17,5 +17,6 @@ router.get('/typeFoods', main_hander.typeFoods)
 router.get('/categoryInfo', main_hander.categoryInfo)
 router.get('/nameFood', main_hander.nameFood)
 router.get('/idFood', main_hander.idFood)
+router.get('/orderInfo', main_hander.orderInfo)
 
 module.exports = router

@@ -25,3 +25,8 @@ exports.products = (req, res) => {
 exports.single = (req, res) => {
     res.render('./single.html')
 }
+
+exports.myorder = (req, res) => {
+    res.render('./myorder.html')
+}
+

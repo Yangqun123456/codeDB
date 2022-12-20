@@ -9,6 +9,8 @@
 	<!----webfonts---->
 	<link href='http://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,600,700,800,900' rel='stylesheet'
 		type='text/css'>
+	<link rel="stylesheet" href="css/btn-numbox.css">
+	<link rel="stylesheet" href="css/myorder.css">
 </head>
 
 <body>
@@ -83,17 +85,79 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="search">
-					<input id="search-input" type="text" class="text" value="Enter Product Details" onfocus="this.value = '';"
+					<input id="search-input" type="text" class="text" value="Enter Product Details"
+						onfocus="this.value = '';"
 						onblur="if (this.value == '') {this.value = 'Enter Product Details';}">
 					<input id="searchButton" type="submit" value="Search">
 				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="main">
 		<div class="container">
-			<!-- code there -->
+			<div class="single">
+				<div class="row content">
+					<div class="col-md-3">
+						<div class="category_box">
+							<h3 class="cate_head">Categories</h3>
+							<ul class="category" id="category"></ul>
+						</div>
+						<ul class="product_reviews">
+							<h3><i class="arrow"> </i><span>Product Reviews</span></h3>
+							<li>
+								<ul class="review1">
+									<li class="review1_img"><img src="images/pic1.jpg" class="img-responsive" alt="" />
+									</li>
+									<li class="review1_desc">
+										<h3><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</a>
+										</h3>
+										<p>Wed, June 2014</p>
+									</li>
+									<div class="clearfix"> </div>
+								</ul>
+							</li>
+							<li>
+								<ul class="review1">
+									<li class="review1_img"><img src="images/pic2.jpg" class="img-responsive" alt="" />
+									</li>
+									<li class="review1_desc">
+										<h3><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</a>
+										</h3>
+										<p>Wed, June 2014</p>
+									</li>
+									<div class="clearfix"> </div>
+								</ul>
+							</li>
+							<li>
+								<ul class="review1">
+									<li class="review1_img"><img src="images/pic3.jpg" class="img-responsive" alt="" />
+									</li>
+									<li class="review1_desc">
+										<h3><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</a>
+										</h3>
+										<p>Wed, June 2014</p>
+									</li>
+									<div class="clearfix"> </div>
+								</ul>
+							</li>
+							<div class="but">
+								<a href="#">More Reviews<i class="but_arrow"> </i></a>
+							</div>
+						</ul>
+						<ul class="product_reviews">
+							<h3><i class="arrow"> </i><span>Payment Methods</span></h3>
+							<img src="images/payment.png" class="img-responsive" alt="" />
+						</ul>
+					</div>
+
+					<div class="col-md-9" id="orderFoodList">
+						<ul class="feature">
+							<h3><i class="arrow"> </i><span>My Order</span></h3>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 

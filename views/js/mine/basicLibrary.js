@@ -13,6 +13,7 @@ function updateWebsiteHref(username, email) {
     $("a[href='products.html']").attr('href', 'products?username=' + username + '&email=' + email);
     $("a[href='register.html']").attr('href', 'register?username=' + username + '&email=' + email);
     $("a[href='single.html']").attr('href', 'single?username=' + username + '&email=' + email);
+    $("a[href='myorder.html']").attr('href', 'myorder?username=' + username + '&email=' + email);
 }
 
 export function alertmess(mess) {

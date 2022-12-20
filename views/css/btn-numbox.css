@@ -1,4 +1,4 @@
-　　* {
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -31,23 +31,24 @@ img {
     overflow: hidden;
     margin-top: 20px;
     margin-bottom: 20px;
+   
 }
 
 .btn-numbox li {
-    float: left;
+    float: left; 
 }
 
 .btn-numbox li .number,
 .kucun {
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     color: #808080;
     vertical-align: sub;
 }
 
 .btn-numbox .count {
     overflow: hidden;
-    margin: 0 16px 0 -20px;
+    margin: 0 16px 0 20px;
 }
 
 .btn-numbox .count .num-jian,
@@ -59,10 +60,26 @@ img {
     line-height: 28px;
     text-align: center;
     font-size: 18px;
-    color: #999;
+    color: rgb(63, 63, 63);
+    background-color: #fff;
     cursor: pointer;
     border: 1px solid #e6e6e6;
 }
+
+.btn-numbox .count .num-jian,
+.num-jia {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(112, 112, 112);
+    cursor: pointer;
+    border: 1px solid #e6e6e6;
+}
+
 .btn-numbox .count .input-num {
     width: 58px;
     height: 26px;
