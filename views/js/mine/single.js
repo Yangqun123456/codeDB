@@ -33,7 +33,7 @@ function init_single(username, email, food_id) {
             $('#foodName').html(foodData.name);
             $('#foodDetails').html(foodData.detail);
             if (foodData.original_price !== null) $('#original_price').html(`原价:  ${foodData.original_price}`);
-            $('#now_price').html(`现价:  ${foodData.price}`);
+            $('#now_price').html(`现价: $ ${foodData.price}`);
             $('#foodDetailsContent').html(foodData.detail);
         } else alert(data.message);
     })
@@ -48,6 +48,7 @@ function init_single(username, email, food_id) {
                     food_id: food_id,
                     food_number: food_number,
                 }, async function (data) {
+                    console.log(data);
                     if (data.status === 0) {
                         alertmess("已添加到我的订单当中。")
                     } else alert(data.message);

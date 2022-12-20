@@ -18,5 +18,6 @@ router.get('/categoryInfo', main_hander.categoryInfo)
 router.get('/nameFood', main_hander.nameFood)
 router.get('/idFood', main_hander.idFood)
 router.get('/orderInfo', main_hander.orderInfo)
+router.get('/orderTotalPrice', main_hander.orderTotalPrice)
 
 module.exports = router

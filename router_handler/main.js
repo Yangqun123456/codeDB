@@ -3,6 +3,28 @@ const db = require('../db/index')
 // 导入 bcryptjs 这个包
 const bcrypt = require("bcryptjs");
 
+// 更新订单总价
+function updateTotalPrice(req, res, id) {
+    const sql = `select SUM(food.price*orderfoods.foodNumber) sumPrice from food,orderfoods where orderfoods.id=? and orderfoods.food_id=food.id`;
+    db.query(sql, id, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err);
+        // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
+        if (results.length !== 1) return res.cc("计算总价失败！");
+        else {
+            const totalPrice = results[0].sumPrice.toFixed(2);
+            const sql = `update orderinfo set totalPrice=? where id=?`
+            db.query(sql, [totalPrice, id], (err, results) => {
+                // 执行 SQL 语句失败
+                if (err) return res.cc(err);
+                // 影响的行数是否等于 1
+                if (results.affectedRows !== 1) return res.cc("更新预购食物信息失败!");
+                else res.cc("更新预购食物信息成功!", 0);
+            });
+        }
+    });
+};
+
 // 注册新用户的处理函数
 exports.register = (req, res) => {
     // 获取客户端提交到服务器的用户信息
@@ -128,7 +150,7 @@ exports.buyFoods = (req, res) => {
                                 if (err) return res.cc(err);
                                 // 影响的行数是否等于 1
                                 if (results.affectedRows !== 1) return res.cc("更新预购食物信息失败!");
-                                else res.cc("更新预购食物信息成功!", 0);
+                                updateTotalPrice(req, res, orderId);
                             });
                         } else {
                             const sql = `insert into orderfoods set ?`;
@@ -141,12 +163,12 @@ exports.buyFoods = (req, res) => {
                                 if (err) return res.cc(err);
                                 // 判断影响行数是否为 1
                                 if (results.affectedRows !== 1) return res.cc("插入订单失败，请稍后重试！");
-                                else res.cc("插入预购订单成功", 0);
+                                updateTotalPrice(req, res, orderId);
                             });
                         }
                     })
                 }
-            })
+            });
         }
     });
 };
@@ -154,7 +176,7 @@ exports.buyFoods = (req, res) => {
 exports.submitOrder = (req, res) => {
     // 接收表单的数据
     const userinfo = req.body;
-    const sql = `update orderinfo set type='submit' datetime=? where id=? and email=?`
+    const sql = `update orderinfo set type='submit',datetime=? where id=? and email=?`
     db.query(sql, [new Date().Format("yyyy-MM-dd HH:mm:ss"), userinfo.orderId, userinfo.email], (err, results) => {
         // 执行 SQL 语句失败
         if (err) return res.cc(err);
@@ -269,7 +291,7 @@ exports.idFood = (req, res) => {
 exports.orderInfo = (req, res) => {
     // 接收表单的数据
     const userinfo = req.query;
-    const sqlStr = "select * from orderinfo where email=? and type='reserve' limit 1";
+    const sqlStr = "select * from orderinfo where email=? order by id desc limit 1";
     db.query(sqlStr, userinfo.email, (err, results) => {
         // 执行 SQL 语句失败
         if (err) return res.cc(err)
@@ -291,6 +313,24 @@ exports.orderInfo = (req, res) => {
                 })
             })
         }
+    });
+};
+
+exports.orderTotalPrice = (req, res) => {
+    // 接收表单的数据
+    const userinfo = req.query;
+    const sqlStr = "select id,totalPrice from orderinfo where email=? and type='reserve' limit 1";
+    db.query(sqlStr, userinfo.email, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length !== 1) return res.cc('无预提交订单！');
+        else res.send({
+            status: 0,
+            message: "获取订单总价成功！",
+            orderId: results[0].id,
+            price: results[0].totalPrice,
+        });
     });
 };
 

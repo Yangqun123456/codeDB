@@ -52,6 +52,38 @@ export function correctBuyButtonHref(username, email, id) {
     else if (id !== null) return `single?id=${id}`;
 }
 
+function getOrderTotalPrice(username, email) {
+    if (username !== null && email !== null) {
+        $.get('http://127.0.0.1:4002/api/orderTotalPrice', { email: email }, async function (data) {
+            if (data.status == 0) {
+                const totalPrice = data.price;
+                const orderId = data.orderId;
+                // 添加订单总价html元素
+                $('#main-container').append(`<div id="totalPrice-bottom" class="col-md-6 navbar-fixed-bottom col-md-offset-4">
+                    <ul class="feature_grid">
+                    <li style="margin-top:5px">
+                    <div class="price" style="font-size: 20px;"><span
+                        style="color:red;font-weight: bold;">总价:
+                    </span><span class="actual" id="totalPrice"> &nbsp&nbsp$&nbsp&nbsp${totalPrice}</span></div>
+                    </li>
+                    <li style="float: right;"><a id="order-submit" class="acount-btn" style="float: right;width: 160px;"> Submit </a></li>
+                    <div class="clearfix"> </div>
+                    </ul>`
+                );
+                // 绑定提交Order事件
+                $('#order-submit').click(function () {
+                    $.post('http://127.0.0.1:4002/api/submitOrder', { orderId: orderId, email: email }, async function (data) {
+                        if (data.status == 0) {
+                            $('#totalPrice-bottom').hide();
+                            alertmess("提交订单成功！");
+                        } else alert(data.message);
+                    })
+                });
+            } 
+        });
+    }
+}
+
 export function init(username, email) {
     if (username !== null) { $('#username').html(username); }
     if (email === null || username === null) $("a[href='myorder.html']").attr('href', 'account');
@@ -77,4 +109,5 @@ export function init(username, email) {
             } else alert(data.message);
         });
     });
+    getOrderTotalPrice(username, email);
 }

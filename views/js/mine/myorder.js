@@ -22,7 +22,6 @@ function init_myorder(username, email) {
     $.get('http://127.0.0.1:4002/api/orderInfo', { email: email }, async function (data) {
         if (data.status === 0) {
             const foodData = data.data;
-            console.log(foodData);
             for (var key = 0; key < ignoreErrorAttr(foodData, 'length'); key++) {
                 $('#orderFoodList').append(`
                         <ul class="feature_grid">
@@ -55,7 +54,7 @@ function init_myorder(username, email) {
                     const id = this.id.split('_')[1];
                     if ($(`#input-num_${id}`).val() <= 1) {
                         $(`#input-num_${id}`).val(1);
-                    }else $(`#input-num_${id}`).val(parseInt($(`#input-num_${id}`).val()) - 1);
+                    } else $(`#input-num_${id}`).val(parseInt($(`#input-num_${id}`).val()) - 1);
                 })
             }
         } else alert(data.message);
