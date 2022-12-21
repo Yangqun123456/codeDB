@@ -31,6 +31,13 @@ exports.buyFoods_schema = {
 exports.submitOrder_schema = {
     body: {
         email,
-        orderId: joi.number(),
+    },
+}
+
+exports.changeFoodsNumber_schema = {
+    body: {
+        email,
+        food_id: joi.number(),
+        foodNumber: joi.number(),
     },
 }

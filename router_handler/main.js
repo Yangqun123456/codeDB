@@ -176,13 +176,49 @@ exports.buyFoods = (req, res) => {
 exports.submitOrder = (req, res) => {
     // 接收表单的数据
     const userinfo = req.body;
-    const sql = `update orderinfo set type='submit',datetime=? where id=? and email=?`
-    db.query(sql, [new Date().Format("yyyy-MM-dd HH:mm:ss"), userinfo.orderId, userinfo.email], (err, results) => {
+    const sql = `select id,totalPrice from orderinfo where email=? and type='reserve' limit 1`;
+    db.query(sql, userinfo.email, (err, results) => {
         // 执行 SQL 语句失败
-        if (err) return res.cc(err);
-        // 影响的行数是否等于 1
-        if (results.affectedRows !== 1) return res.cc("提交订单失败!");
-        else res.cc("提交订单成功!", 0);
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length !== 1) return res.cc('当前不存在预购订单！');
+        else {
+            const orderId = results[0].id;
+            if (results[0].totalPrice == 0) return res.cc('抱歉，您还未选择食物！');
+            else {
+                const sql = `update orderinfo set type='submit',datetime=? where id=? and email=?`
+                db.query(sql, [new Date().Format("yyyy-MM-dd HH:mm:ss"), orderId, userinfo.email], (err, results) => {
+                    // 执行 SQL 语句失败
+                    if (err) return res.cc(err);
+                    // 影响的行数是否等于 1
+                    if (results.affectedRows !== 1) return res.cc("提交订单失败!");
+                    else res.cc("提交订单成功!", 0);
+                });
+            }
+        }
+    });
+};
+
+exports.changeFoodsNumber = (req, res) => {
+    // 接收表单的数据
+    const userinfo = req.body;
+    const sqlStr = "select id from orderinfo where email=? and type='reserve' limit 1";
+    db.query(sqlStr, userinfo.email, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err)
+        // 执行 SQL 语句成功，但是查询的结果可能为空
+        if (results.length !== 1) return res.cc('无预提交订单！');
+        else {
+            const id = results[0].id;
+            const sql = `update orderfoods set foodNumber=? where id=? and food_id=?`;
+            db.query(sql, [userinfo.foodNumber, id, userinfo.food_id], (err, results) => {
+                // 执行 SQL 语句失败
+                if (err) return res.cc(err);
+                // 影响的行数是否等于 1
+                if (results.affectedRows !== 1) return res.cc("修改食物数量失败!");
+                else updateTotalPrice(req, res, id);
+            });
+        }
     });
 };
 

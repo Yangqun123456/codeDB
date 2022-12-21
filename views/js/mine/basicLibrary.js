@@ -52,12 +52,22 @@ export function correctBuyButtonHref(username, email, id) {
     else if (id !== null) return `single?id=${id}`;
 }
 
-function getOrderTotalPrice(username, email) {
+function correctOrderTotalPrice(username, email) {
     if (username !== null && email !== null) {
         $.get('http://127.0.0.1:4002/api/orderTotalPrice', { email: email }, async function (data) {
             if (data.status == 0) {
                 const totalPrice = data.price;
-                const orderId = data.orderId;
+                $('#totalPrice').html(` &nbsp&nbsp$&nbsp&nbsp${totalPrice}`)
+            }
+        });
+    }
+}
+
+export function getOrderTotalPrice(username, email) {
+    if (username !== null && email !== null) {
+        $.get('http://127.0.0.1:4002/api/orderTotalPrice', { email: email }, async function (data) {
+            if (data.status == 0) {
+                const totalPrice = data.price;
                 // 添加订单总价html元素
                 $('#main-container').append(`<div id="totalPrice-bottom" class="col-md-6 navbar-fixed-bottom col-md-offset-4">
                     <ul class="feature_grid">
@@ -70,19 +80,56 @@ function getOrderTotalPrice(username, email) {
                     <div class="clearfix"> </div>
                     </ul>`
                 );
-                // 绑定提交Order事件
-                $('#order-submit').click(function () {
-                    $.post('http://127.0.0.1:4002/api/submitOrder', { orderId: orderId, email: email }, async function (data) {
-                        if (data.status == 0) {
-                            $('#totalPrice-bottom').hide();
-                            alertmess("提交订单成功！");
-                        } else alert(data.message);
-                    })
-                });
-            } 
+                submitClick(email);
+            }
         });
     }
 }
+
+// 绑定提交Order事件
+function submitClick(email) {
+    if (email !== null) {
+        $('#order-submit').click(function () {
+            $.post('http://127.0.0.1:4002/api/submitOrder', { email: email }, async function (data) {
+                console.log(data);
+                if (data.status == 0) {
+                    $('#totalPrice-bottom').hide();
+                    alertmess("提交订单成功！");
+                } else alert(data.message);
+            })
+        });
+    }
+}
+
+export function changeFoodsNumber(username, email, food_id, foodNumber) {
+    if (username !== null && email !== null) {
+        $.post('http://127.0.0.1:4002/api/changeFoodsNumber', {
+            email: email,
+            food_id: food_id,
+            foodNumber: foodNumber,
+        }, async function (data) {
+            if (data.status == 0) {
+                correctMyOrderPriceView(username, email);
+                correctOrderTotalPrice(username, email);
+            } else alert(data.message);
+        })
+    }
+}
+
+export function correctMyOrderPriceView(username, email) {
+    if (username !== null && email !== null) {
+        // 获取订单信息
+        $.get('http://127.0.0.1:4002/api/orderInfo', { email: email }, async function (data) {
+            if (data.status === 0) {
+                const foodData = data.data;
+                for (var key = 0; key < ignoreErrorAttr(foodData, 'length'); key++) {
+                    $(`#singleTotalPrice_${foodData[key].id}`).html(` &nbsp&nbsp&nbsp$&nbsp${(foodData[key].price * foodData[key].foodNumber).toFixed(2)}`)
+                }
+            } else alert(data.message);
+        });
+    }
+}
+
 
 export function init(username, email) {
     if (username !== null) { $('#username').html(username); }

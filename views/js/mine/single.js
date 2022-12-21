@@ -1,4 +1,4 @@
-import { getUrlParam, init, ignoreErrorAttr, alertmess } from "./basicLibrary.js";
+import { getUrlParam, init, ignoreErrorAttr, alertmess, getOrderTotalPrice } from "./basicLibrary.js";
 
 function changeImagePath(path) {
     $('#etalage_source_image').attr('src', path);
@@ -50,6 +50,7 @@ function init_single(username, email, food_id) {
                 }, async function (data) {
                     console.log(data);
                     if (data.status === 0) {
+                        getOrderTotalPrice(username, email);
                         alertmess("已添加到我的订单当中。")
                     } else alert(data.message);
                 });

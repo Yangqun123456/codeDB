@@ -1,4 +1,4 @@
-import { getUrlParam, init, ignoreErrorAttr } from "./basicLibrary.js";
+import { getUrlParam, init, ignoreErrorAttr, changeFoodsNumber } from "./basicLibrary.js";
 
 function init_myorder(username, email) {
     // 分类信息
@@ -42,19 +42,23 @@ function init_myorder(username, email) {
 								</li>
 							</ul>
 							<div class="price" style="font-size: 16px;"><span style="color:red;font-weight: bold;">Price:
-								</span><span class="actual"> &nbsp&nbsp&nbsp$&nbsp${(foodData[key].price * foodData[key].foodNumber).toFixed(2)}</span></div>
+								</span><span class="actual" id="singleTotalPrice_${foodData[key].id}"> &nbsp&nbsp&nbsp$&nbsp${(foodData[key].price * foodData[key].foodNumber).toFixed(2)}</span></div>
 							<div class="clearfix"> </div>
 						</ul>
                 `);
                 $(`#num-jia_${foodData[key].id}`).click(function () {
                     const id = this.id.split('_')[1];
                     $(`#input-num_${id}`).val(parseInt($(`#input-num_${id}`).val()) + 1);
+                    changeFoodsNumber(username, email, id, $(`#input-num_${id}`).val());
                 })
                 $(`#num-jian_${foodData[key].id}`).click(function () {
                     const id = this.id.split('_')[1];
-                    if ($(`#input-num_${id}`).val() <= 1) {
-                        $(`#input-num_${id}`).val(1);
-                    } else $(`#input-num_${id}`).val(parseInt($(`#input-num_${id}`).val()) - 1);
+                    if ($(`#input-num_${id}`).val() <= 0) {
+                        $(`#input-num_${id}`).val(0);
+                    } else {
+                        $(`#input-num_${id}`).val(parseInt($(`#input-num_${id}`).val()) - 1);
+                        changeFoodsNumber(username, email, id, $(`#input-num_${id}`).val());
+                    }
                 })
             }
         } else alert(data.message);
