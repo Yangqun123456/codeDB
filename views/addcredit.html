@@ -2,11 +2,18 @@
 <html>
 
 <head>
-	<title>menu</title>
+	<title>Add Credit</title>
 	<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Custom Theme files -->
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<link href="css/alertmess.css" rel='stylesheet' type='text/css' />
+	<!-- Custom Theme files -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	</script>
 	<!----webfonts---->
 	<link href='http://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,600,700,800,900' rel='stylesheet'
 		type='text/css'>
@@ -66,7 +73,7 @@
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav menu1">
 									<li><a href="index.html">Specials</a></li>
-									<li class="active"><a href="menu.html">menu</a></li>
+									<li><a href="menu.html">menu</a></li>
 									<li><a href="contact.html">Contact</a></li>
 									<li><a href="myorder.html">My Order</a></li>
 								</ul>
@@ -85,7 +92,8 @@
 					<div class="clearfix"></div>
 				</div>
 				<div class="search">
-					<input id="search-input" type="text" class="text" value="Enter Product Details" onfocus="this.value = '';"
+					<input id="search-input" type="text" class="text" value="Enter Product Details"
+						onfocus="this.value = '';"
 						onblur="if (this.value == '') {this.value = 'Enter Product Details';}">
 					<input id="searchButton" type="submit" value="Search">
 				</div>
@@ -94,84 +102,35 @@
 	</div>
 	<div class="main">
 		<div class="container">
-			<div class="single">
-				<div class="row content" id="main-container">
-					<div class="col-md-3">
-						<div class="category_box">
-							<h3 class="cate_head">Categories</h3>
-							<ul class="category" id="category"></ul>
-						</div>
-						<ul class="product_reviews">
-							<h3><i class="arrow"> </i><span>Product Reviews</span></h3>
-							<li>
-								<ul class="review1">
-									<li class="review1_img"><img src="images/pic1.jpg" class="img-responsive" alt="" />
-									</li>
-									<li class="review1_desc">
-										<h3><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</a>
-										</h3>
-										<p>Wed, June 2014</p>
-									</li>
-									<div class="clearfix"> </div>
-								</ul>
-							</li>
-							<li>
-								<ul class="review1">
-									<li class="review1_img"><img src="images/pic2.jpg" class="img-responsive" alt="" />
-									</li>
-									<li class="review1_desc">
-										<h3><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</a>
-										</h3>
-										<p>Wed, June 2014</p>
-									</li>
-									<div class="clearfix"> </div>
-								</ul>
-							</li>
-							<li>
-								<ul class="review1">
-									<li class="review1_img"><img src="images/pic3.jpg" class="img-responsive" alt="" />
-									</li>
-									<li class="review1_desc">
-										<h3><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</a>
-										</h3>
-										<p>Wed, June 2014</p>
-									</li>
-									<div class="clearfix"> </div>
-								</ul>
-							</li>
-							<div class="but">
-								<a href="#">More Reviews<i class="but_arrow"> </i></a>
-							</div>
-						</ul>
-						<ul class="product_reviews">
-							<h3><i class="arrow"> </i><span>Payment Methods</span></h3>
-							<img src="images/payment.png" class="img-responsive" alt="" />
-						</ul>
-					</div>
-					<div class="col-md-9">
+			<div class="Product_top">
+				<div class="row content">
+					<div class="col-md-12">
 						<div class="breadcrumb">
 							<a href="index.html">Home</a>
-							>> <span class="last">menu/Foods</span>
+							&gt;&gt; <span class="last">Add Credit</span>
 						</div>
-						<div class="fruit">
-							<h3>menu/Foods</h3>
-							<p>川菜作为中国八大菜系之一,用料广泛,味多而深浓,以麻辣味最为特色。川菜最大的特点就在于调味,味型多样、变化精妙。烹调多用辣椒、胡花椒、豆瓣酱和醋、糖等调味，调味品不同的配比,化出了鱼香、麻辣、椒麻怪味等各种味型的川菜,道道无不厚实醇浓。
-							</p>
+						<div class="contact-form">
+							<p>充值界面</p>
+							<form>
+								<div>
+									<span><label>Password</label></span>
+									<span><input id="addCredit-password" name="password" type="password"
+											class="textbox"></span>
+								</div>
+								<div>
+									<span><label>Confirm Password</label></span>
+									<span><input id="addCredit-confirmPassword" name="confirmPassword" type="password"
+											class="textbox"></span>
+								</div>
+								<div>
+									<span><label>Money:</label></span>
+									<span><input id="addCredit-credit" name="money" type="number" class="textbox"></span>
+								</div>
+								<div>
+									<span><input type="button" value="Submit" id="addCredit-button"></span>
+								</div>
+							</form>
 						</div>
-						<div class="product-filter">
-							<div class="limit"><b>Show:</b>
-								<select onchange="location = this.value;">
-									<option value="#" selected="selected">6</option>
-									<option value="#">25</option>
-									<option value="#">50</option>
-									<option value="#">75</option>
-									<option value="#">100</option>
-								</select>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div id="foodList_1" class="row content_bottom"></div>
-						<div id="foodList_2" class="row content_bottom"></div>
 					</div>
 				</div>
 			</div>
@@ -248,13 +207,7 @@
 	</div>
 
 
-
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/mine/menu.js" type="module"></script>
-	<script
-		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	</script>
+	<script src="js/mine/addcredit.js" type="module"></script>
 </body>
 
 </html>

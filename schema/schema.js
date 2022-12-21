@@ -41,3 +41,11 @@ exports.changeFoodsNumber_schema = {
         foodNumber: joi.number(),
     },
 }
+
+exports.addCredit_schema = {
+    body: {
+        email,
+        password,
+        credit: joi.number(),
+    },
+}

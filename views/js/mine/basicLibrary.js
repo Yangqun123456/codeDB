@@ -14,6 +14,7 @@ function updateWebsiteHref(username, email) {
     $("a[href='register.html']").attr('href', 'register?username=' + username + '&email=' + email);
     $("a[href='single.html']").attr('href', 'single?username=' + username + '&email=' + email);
     $("a[href='myorder.html']").attr('href', 'myorder?username=' + username + '&email=' + email);
+    $("a[href='addcredit.html']").attr('href', 'addcredit?username=' + username + '&email=' + email);
 }
 
 export function alertmess(mess) {
@@ -81,7 +82,7 @@ export function getOrderTotalPrice(username, email) {
                     </ul>`
                 );
                 submitClick(email);
-            }
+            } else preventChangeNumber(email);
         });
     }
 }
@@ -94,8 +95,10 @@ function submitClick(email) {
                 console.log(data);
                 if (data.status == 0) {
                     $('#totalPrice-bottom').hide();
+                    preventChangeNumber(email);
+                    getUserBalance(email);
                     alertmess("提交订单成功！");
-                } else alert(data.message);
+                } else { alert(data.message); getUserBalance(email); }
             })
         });
     }
@@ -130,20 +133,36 @@ export function correctMyOrderPriceView(username, email) {
     }
 }
 
+// 有错误
+function preventChangeNumber(email) {
+    $.get('http://127.0.0.1:4002/api/orderInfo', { email: email }, async function (data) {
+        if (data.status === 0) {
+            const foodData = data.data;
+            for (var key = 0; key < ignoreErrorAttr(foodData, 'length'); key++) {
+                $(`#num-jia_${foodData[key].id}`).addClass("notclick");
+                $(`#num-jian_${foodData[key].id}`).addClass("notclick");
+            }
+        }
+    });
+}
+
+export function getUserBalance(email) {
+    // 获取用户余额
+    $.get('http://127.0.0.1:4002/userinfo/getUserBalance', {
+        email: email,
+    }, async function (data) {
+        if (data.status == 0) {
+            $('#balance').html(`<span>$ ${data.balance.toFixed(2)}</span>`);
+        } else alert(data.message);
+    });
+}
 
 export function init(username, email) {
     if (username !== null) { $('#username').html(username); }
-    if (email === null || username === null) $("a[href='myorder.html']").attr('href', 'account');
+    if (email === null || username === null) { $("a[href='myorder.html']").attr('href', 'account'); $("a[href='addcredit.html']").attr('href', 'account'); }
     if (email !== null && username !== null) {
         updateWebsiteHref(username, email);
-        // 获取用户余额
-        $.get('http://127.0.0.1:4002/userinfo/getUserBalance', {
-            email: email,
-        }, async function (data) {
-            if (data.status == 0) {
-                $('#balance').html(`<span>$ ${data.balance.toFixed(2)}</span>`);
-            } else alert(data.message);
-        });
+        getUserBalance(email);
     }
     // 绑定搜索事件
     $('#searchButton').click(function () {

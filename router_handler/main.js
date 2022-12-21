@@ -25,6 +25,41 @@ function updateTotalPrice(req, res, id) {
     });
 };
 
+function updateUserBalance(req, res, email, price, orderId) {
+    const sql = `select balance from user where email=?`;
+    db.query(sql, [email], (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err);
+        // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
+        if (results.length !== 1) return res.cc("用户名不存在！");
+        else {
+            const balance = results[0].balance;
+            if (balance < price) res.cc("用户余额不足！")
+            else {
+                const sql = `update user set balance=balance-? where email=?`;
+                db.query(sql, [price, email], (err, results) => {
+                    // 执行 SQL 语句失败
+                    if (err) return res.cc(err);
+                    // 影响的行数是否等于 1
+                    if (results.affectedRows !== 1) return res.cc("修改余额失败!");
+                    else {
+                        console.log(orderId, email);
+                        const sql = `update orderinfo set type='submit',datetime=? where id=? and email=?`
+                        db.query(sql, [new Date().Format("yyyy-MM-dd HH:mm:ss"), orderId, email], (err, results) => {
+                            // 执行 SQL 语句失败
+                            if (err) return res.cc(err);
+                            // 影响的行数是否等于 1
+                            if (results.affectedRows !== 1) return res.cc("提交订单失败!");
+                            else res.cc("提交订单成功", 0);
+                        });
+                    }
+                });
+            }
+        }
+    })
+
+}
+
 // 注册新用户的处理函数
 exports.register = (req, res) => {
     // 获取客户端提交到服务器的用户信息
@@ -184,17 +219,39 @@ exports.submitOrder = (req, res) => {
         if (results.length !== 1) return res.cc('当前不存在预购订单！');
         else {
             const orderId = results[0].id;
-            if (results[0].totalPrice == 0) return res.cc('抱歉，您还未选择食物！');
-            else {
-                const sql = `update orderinfo set type='submit',datetime=? where id=? and email=?`
-                db.query(sql, [new Date().Format("yyyy-MM-dd HH:mm:ss"), orderId, userinfo.email], (err, results) => {
-                    // 执行 SQL 语句失败
-                    if (err) return res.cc(err);
-                    // 影响的行数是否等于 1
-                    if (results.affectedRows !== 1) return res.cc("提交订单失败!");
-                    else res.cc("提交订单成功!", 0);
-                });
-            }
+            const price = results[0].totalPrice;
+            if (price == 0) return res.cc('抱歉，您还未选择食物！');
+            else updateUserBalance(req, res, userinfo.email, price, orderId)
+        }
+    });
+};
+
+exports.addCredit = (req, res) => {
+    // 接收表单的数据
+    const userinfo = req.body;
+    // 定义 SQL 语句
+    const sql = `select * from user where email=?`;
+    // 执行 SQL 语句，根据用户名查询用户的信息
+    db.query(sql, userinfo.email, (err, results) => {
+        // 执行 SQL 语句失败
+        if (err) return res.cc(err);
+        // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
+        if (results.length !== 1) return res.cc("用户名不存在！");
+        // 判断密码是否正确
+        const compareResult = bcrypt.compareSync(
+            userinfo.password,
+            results[0].password
+        );
+        if (!compareResult) return res.cc("密码不正确！");
+        else {
+            const sql = `update user set balance=balance+? where email=?`
+            db.query(sql, [userinfo.credit, userinfo.email], (err, results) => {
+                // 执行 SQL 语句失败
+                if (err) return res.cc(err);
+                // 影响的行数是否等于 1
+                if (results.affectedRows !== 1) return res.cc("充值失败!");
+                else res.cc("充值成功!", 0);
+            })
         }
     });
 };

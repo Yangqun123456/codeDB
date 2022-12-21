@@ -10,5 +10,6 @@ router.get('/menu', index_hander.menu)
 router.get('/products', index_hander.products)
 router.get('/single', index_hander.single)
 router.get('/myorder', index_hander.myorder)
+router.get('/addcredit', index_hander.addcredit)
 
 module.exports = router

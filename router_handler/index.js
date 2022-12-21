@@ -30,3 +30,7 @@ exports.myorder = (req, res) => {
     res.render('./myorder.html')
 }
 
+exports.addcredit = (req, res) => {
+    res.render('./addcredit.html')
+}
+

@@ -1244,11 +1244,35 @@ span.banners--small--text{
 	border: 1px solid #EBEBEB;
 	-webkit-appearance: none;
 }
+.contact-form input[type="password"],.contact-form textarea{
+	padding: 12px;
+	display: block;
+	width: 99%;
+	background: #fff;
+	border: none;
+	outline: none;
+	color: #999;
+	font-size: 0.85em;
+	border: 1px solid #EBEBEB;
+	-webkit-appearance: none;
+}
+.contact-form input[type="number"],.contact-form textarea{
+	padding: 12px;
+	display: block;
+	width: 99%;
+	background: #fff;
+	border: none;
+	outline: none;
+	color: #999;
+	font-size: 0.85em;
+	border: 1px solid #EBEBEB;
+	-webkit-appearance: none;
+}
 .contact-form textarea{
 	resize:none;
 	height:120px;		
 }
-.contact-form input[type="submit"]{
+.contact-form input[type="button"]{
 	cursor: pointer;
 	border: none;
 	outline: none;
