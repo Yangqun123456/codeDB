@@ -14,7 +14,7 @@ $('#register-button').click(function () {
     const password = $('#register-password').val();
     const passwordConfirm = $('#register-password-confirm').val();
     if (password !== passwordConfirm) alert('两次输入的密码不一样');
-    $.post('http://127.0.0.1:4002/api/register', {
+    $.post('http://127.0.0.1:4003/api/register', {
         username: username,
         password: password,
         email: email,

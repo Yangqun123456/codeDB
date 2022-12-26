@@ -9,7 +9,7 @@ function clearInput() {
 $('#login-button').click(function () {
     const email = $('#login-email').val();
     const password = $('#login-password').val();
-    $.post('http://127.0.0.1:4002/api/login', {
+    $.post('http://127.0.0.1:4003/api/login', {
         email: email,
         password: password,
     }, async function (data) {
@@ -18,7 +18,7 @@ $('#login-button').click(function () {
             clearInput();
             $('#username').html(username);
             alertmess(data.message);
-            location.href = 'http://localhost:4002/index?username=' + username + '&email=' + email;
+            location.href = 'http://localhost:4003/index?username=' + username + '&email=' + email;
         } else alert(data.message);
     });
 });

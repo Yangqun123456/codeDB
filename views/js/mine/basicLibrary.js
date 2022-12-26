@@ -55,10 +55,10 @@ export function correctBuyButtonHref(username, email, id) {
 
 function correctOrderTotalPrice(username, email) {
     if (username !== null && email !== null) {
-        $.get('http://127.0.0.1:4002/api/orderTotalPrice', { email: email }, async function (data) {
+        $.get('http://127.0.0.1:4003/api/orderTotalPrice', { email: email }, async function (data) {
             if (data.status == 0) {
                 const totalPrice = data.price;
-                $('#totalPrice').html(` &nbsp&nbsp$&nbsp&nbsp${totalPrice}`)
+                $('#totalPrice').html(` &nbsp&nbsp&nbsp&nbsp${totalPrice} 元`)
             }
         });
     }
@@ -66,7 +66,7 @@ function correctOrderTotalPrice(username, email) {
 
 export function getOrderTotalPrice(username, email) {
     if (username !== null && email !== null) {
-        $.get('http://127.0.0.1:4002/api/orderTotalPrice', { email: email }, async function (data) {
+        $.get('http://127.0.0.1:4003/api/orderTotalPrice', { email: email }, async function (data) {
             if (data.status == 0) {
                 const totalPrice = data.price;
                 // 添加订单总价html元素
@@ -75,7 +75,7 @@ export function getOrderTotalPrice(username, email) {
                     <li style="margin-top:5px">
                     <div class="price" style="font-size: 20px;"><span
                         style="color:red;font-weight: bold;">总价:
-                    </span><span class="actual" id="totalPrice"> &nbsp&nbsp$&nbsp&nbsp${totalPrice}</span></div>
+                    </span><span class="actual" id="totalPrice"> &nbsp&nbsp&nbsp&nbsp${totalPrice} 元</span></div>
                     </li>
                     <li style="float: right;"><a id="order-submit" class="acount-btn" style="float: right;width: 160px;"> Submit </a></li>
                     <div class="clearfix"> </div>
@@ -91,7 +91,7 @@ export function getOrderTotalPrice(username, email) {
 function submitClick(email) {
     if (email !== null) {
         $('#order-submit').click(function () {
-            $.post('http://127.0.0.1:4002/api/submitOrder', { email: email }, async function (data) {
+            $.post('http://127.0.0.1:4003/api/submitOrder', { email: email }, async function (data) {
                 console.log(data);
                 if (data.status == 0) {
                     $('#totalPrice-bottom').hide();
@@ -106,7 +106,7 @@ function submitClick(email) {
 
 export function changeFoodsNumber(username, email, food_id, foodNumber) {
     if (username !== null && email !== null) {
-        $.post('http://127.0.0.1:4002/api/changeFoodsNumber', {
+        $.post('http://127.0.0.1:4003/api/changeFoodsNumber', {
             email: email,
             food_id: food_id,
             foodNumber: foodNumber,
@@ -122,7 +122,7 @@ export function changeFoodsNumber(username, email, food_id, foodNumber) {
 export function correctMyOrderPriceView(username, email) {
     if (username !== null && email !== null) {
         // 获取订单信息
-        $.get('http://127.0.0.1:4002/api/orderInfo', { email: email }, async function (data) {
+        $.get('http://127.0.0.1:4003/api/orderInfo', { email: email }, async function (data) {
             if (data.status === 0) {
                 const foodData = data.data;
                 for (var key = 0; key < ignoreErrorAttr(foodData, 'length'); key++) {
@@ -135,7 +135,7 @@ export function correctMyOrderPriceView(username, email) {
 
 // 有错误
 function preventChangeNumber(email) {
-    $.get('http://127.0.0.1:4002/api/orderInfo', { email: email }, async function (data) {
+    $.get('http://127.0.0.1:4003/api/orderInfo', { email: email }, async function (data) {
         if (data.status === 0) {
             const foodData = data.data;
             for (var key = 0; key < ignoreErrorAttr(foodData, 'length'); key++) {
@@ -148,7 +148,7 @@ function preventChangeNumber(email) {
 
 export function getUserBalance(email) {
     // 获取用户余额
-    $.get('http://127.0.0.1:4002/userinfo/getUserBalance', {
+    $.get('http://127.0.0.1:4003/userinfo/getUserBalance', {
         email: email,
     }, async function (data) {
         if (data.status == 0) {
@@ -167,11 +167,11 @@ export function init(username, email) {
     // 绑定搜索事件
     $('#searchButton').click(function () {
         const foodName = $('#search-input').val();
-        $.get('http://127.0.0.1:4002/api/nameFood', { foodName: foodName }, async function (data) {
+        $.get('http://127.0.0.1:4003/api/nameFood', { foodName: foodName }, async function (data) {
             if (data.status === 0) {
                 const foodData = data.data;
-                if (username !== null && email !== null) location.href = 'http://localhost:4002/single?username=' + username + '&email=' + email + '&id=' + foodData.id;
-                else location.href = 'http://localhost:4002/single?id=' + foodData.id;
+                if (username !== null && email !== null) location.href = 'http://localhost:4003/single?username=' + username + '&email=' + email + '&id=' + foodData.id;
+                else location.href = 'http://localhost:4003/single?id=' + foodData.id;
             } else alert(data.message);
         });
     });

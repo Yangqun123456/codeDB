@@ -14,7 +14,7 @@ function init_addCreditor(username, email) {
         const credit = $('#addCredit-credit').val();
         if (password !== confirmPassword) alert('两次输入的密码不一样');
         else {
-            $.post('http://127.0.0.1:4002/api/addCredit', {
+            $.post('http://127.0.0.1:4003/api/addCredit', {
                 email: email,
                 password: password,
                 credit: credit,

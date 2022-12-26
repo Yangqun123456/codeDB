@@ -36,28 +36,18 @@ function updateUserBalance(req, res, email, price, orderId) {
             const balance = results[0].balance;
             if (balance < price) res.cc("用户余额不足！")
             else {
-                const sql = `update user set balance=balance-? where email=?`;
-                db.query(sql, [price, email], (err, results) => {
-                    // 执行 SQL 语句失败
-                    if (err) return res.cc(err);
-                    // 影响的行数是否等于 1
-                    if (results.affectedRows !== 1) return res.cc("修改余额失败!");
-                    else {
-                        console.log(orderId, email);
-                        const sql = `update orderinfo set type='submit',datetime=? where id=? and email=?`
-                        db.query(sql, [new Date().Format("yyyy-MM-dd HH:mm:ss"), orderId, email], (err, results) => {
-                            // 执行 SQL 语句失败
-                            if (err) return res.cc(err);
-                            // 影响的行数是否等于 1
-                            if (results.affectedRows !== 1) return res.cc("提交订单失败!");
-                            else res.cc("提交订单成功", 0);
-                        });
-                    }
-                });
+                execTransection([{
+                    sql: `update user set balance=balance-? where email=?`, values: [price, email]
+                }, {
+                    sql: `update orderinfo set type='submit',datetime=? where id=? and email=?`, values: [new Date().Format("yyyy-MM-dd HH:mm:ss"), orderId, email]
+                }]).then(resp => {
+                    return res.cc("提交订单成功", 0)
+                }).catch(err => {
+                    return res.cc(err);
+                })
             }
         }
     })
-
 }
 
 // 注册新用户的处理函数
@@ -143,32 +133,67 @@ exports.buyFoods = (req, res) => {
                         // 执行 SQL 语句成功，但是获取到的数据条数不等于 1
                         if (results.length !== 1) res.cc("获取食物价格失败！");
                         else {
-                            const foodPrice = results[0].price;
-                            const sql = `insert into orderinfo set ?`;
-                            db.query(sql, {
-                                email: userinfo.email,
-                                totalPrice: (parseInt(userinfo.food_number) * parseFloat(foodPrice)).toFixed(2),
-                                datetime: new Date().Format("yyyy-MM-dd HH:mm:ss"),
-                            }, (err, results) => {
-                                // 判断 SQL 语句是否执行成功
-                                if (err) return res.cc(err);
-                                // 判断影响行数是否为 1
-                                if (results.affectedRows !== 1) return res.cc("插入订单失败，请稍后重试！");
-                                else {
-                                    const orderId = results.insertId;
-                                    const sql = `insert into orderfoods set ?`
+                            db.getConnection(function (err, connection) {
+                                if (err) {
+                                    return reject(err)
+                                }
+                                connection.beginTransaction(err => {
+                                    if (err) {
+                                        return reject('开启事务失败')
+                                    }
+                                    const foodPrice = results[0].price;
+                                    const sql = `insert into orderinfo set ?`;
                                     db.query(sql, {
-                                        id: orderId,
-                                        food_id: userinfo.food_id,
-                                        foodNumber: userinfo.food_number
+                                        email: userinfo.email,
+                                        totalPrice: (parseInt(userinfo.food_number) * parseFloat(foodPrice)).toFixed(2),
+                                        datetime: new Date().Format("yyyy-MM-dd HH:mm:ss"),
                                     }, (err, results) => {
                                         // 判断 SQL 语句是否执行成功
-                                        if (err) return res.cc(err);
+                                        if (err) {
+                                            connection.rollback(() => {
+                                                console.log('数据操作回滚')
+                                            }); res.cc(err);
+                                        }
                                         // 判断影响行数是否为 1
-                                        if (results.affectedRows !== 1) return res.cc("插入订单失败，请稍后重试！");
-                                        else res.cc("插入预购订单成功", 0);
-                                    })
-                                }
+                                        if (results.affectedRows !== 1) {
+                                            connection.rollback(() => {
+                                                console.log('数据操作回滚')
+                                            }); res.cc("插入订单失败，请稍后重试！");
+                                        }
+                                        else {
+                                            const orderId = results.insertId;
+                                            const sql = `insert into orderfoods set ?`
+                                            db.query(sql, {
+                                                id: orderId,
+                                                food_id: userinfo.food_id,
+                                                foodNumber: userinfo.food_number
+                                            }, (err, results) => {
+                                                // 判断 SQL 语句是否执行成功
+                                                if (err) {
+                                                    connection.rollback(() => {
+                                                        console.log('数据操作回滚')
+                                                    }); res.cc(err);
+                                                }
+                                                // 判断影响行数是否为 1
+                                                if (results.affectedRows !== 1) {
+                                                    connection.rollback(() => {
+                                                        console.log('数据操作回滚')
+                                                    });
+                                                    res.cc("插入订单失败，请稍后重试！");
+                                                }
+                                                else {
+                                                    connection.commit((error) => {
+                                                        if (error) {
+                                                            console.log('事务提交失败')
+                                                        }
+                                                    });
+                                                    res.cc("插入预购订单成功", 0);
+                                                }
+                                            })
+                                            connection.release()  // 释放链接
+                                        }
+                                    });
+                                });
                             });
                         }
                     })
@@ -348,8 +373,8 @@ exports.categoryInfo = (req, res) => {
 exports.nameFood = (req, res) => {
     // 接收表单的数据
     const userinfo = req.query;
-    const sqlStr = "select * from food where name=? order by id limit 1";
-    db.query(sqlStr, userinfo.foodName, (err, results) => {
+    const sqlStr = "select * from food where name like ? order by id limit 1";
+    db.query(sqlStr, userinfo.foodName + '%', (err, results) => {
         // 执行 SQL 语句失败
         if (err) return res.cc(err)
         // 执行 SQL 语句成功，但是查询的结果可能为空
@@ -442,4 +467,45 @@ Date.prototype.Format = function (fmt) {
     for (var k in o)
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
+}
+
+// promise事务执行
+const execTransection = (sqlArr) => {
+    return new Promise((resolve, reject) => {
+        var promiseArr = [];
+        db.getConnection(function (err, connection) {
+            if (err) {
+                return reject(err)
+            }
+            connection.beginTransaction(err => {
+                if (err) {
+                    return reject('开启事务失败')
+                }
+                // 将所有需要执行的sql封装为数组
+                promiseArr = sqlArr.map(({ sql, values }) => {
+                    return new Promise((resolve, reject) => {
+                        connection.query(sql, values, (e, rows, fields) => {
+                            e ? reject(e) : resolve({ rows, success: true })
+                        })
+                    })
+                })
+                // Promise调用所有sql，一旦出错，回滚，否则，提交事务并释放链接
+                Promise.all(promiseArr).then(res => {
+                    connection.commit((error) => {
+                        if (error) {
+                            console.log('事务提交失败')
+                            reject(error)
+                        }
+                    })
+                    connection.release()  // 释放链接
+                    resolve(res)
+                }).catch(err => {
+                    connection.rollback(() => {
+                        console.log('数据操作回滚')
+                    })
+                    reject(err)
+                })
+            })
+        });
+    })
 }

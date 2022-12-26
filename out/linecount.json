@@ -1,0 +1,1507 @@
+{
+    "extension": "linecount",
+    "version": "0.1.7",
+    "workspace": "e:\\express服务器",
+    "linecount": [
+        {
+            "version": "0.1.7",
+            "counttime": "2022-12-22 18:42:03",
+            "filesum": 113,
+            "codesum": 24285,
+            "commentsum": 2531,
+            "blanksum": 3289,
+            "filelist": [
+                {
+                    "blank": 10,
+                    "code": 40,
+                    "comment": 17,
+                    "filename": "app.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "db\\index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1531,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "router\\index.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 20,
+                    "comment": 2,
+                    "filename": "router\\main.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "router\\userinfo.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "router_handler\\index.js"
+                },
+                {
+                    "blank": 18,
+                    "code": 331,
+                    "comment": 103,
+                    "filename": "router_handler\\main.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 6,
+                    "filename": "router_handler\\userinfo.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 43,
+                    "comment": 3,
+                    "filename": "schema\\schema.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 49,
+                    "comment": 17,
+                    "filename": "views\\404Page.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 166,
+                    "comment": 3,
+                    "filename": "views\\account.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 167,
+                    "comment": 5,
+                    "filename": "views\\addcredit.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 170,
+                    "comment": 5,
+                    "filename": "views\\contact.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "views\\css\\alertmess.css"
+                },
+                {
+                    "blank": 522,
+                    "code": 2798,
+                    "comment": 31,
+                    "filename": "views\\css\\animate.css"
+                },
+                {
+                    "blank": 5,
+                    "code": 5772,
+                    "comment": 8,
+                    "filename": "views\\css\\bootstrap.css"
+                },
+                {
+                    "blank": 13,
+                    "code": 76,
+                    "comment": 0,
+                    "filename": "views\\css\\btn-numbox.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 107,
+                    "comment": 28,
+                    "filename": "views\\css\\etalage.css"
+                },
+                {
+                    "blank": 45,
+                    "code": 294,
+                    "comment": 4,
+                    "filename": "views\\css\\magnific-popup.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "views\\css\\myorder.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 2369,
+                    "comment": 21,
+                    "filename": "views\\css\\style.css"
+                },
+                {
+                    "blank": 20,
+                    "code": 99,
+                    "comment": 7,
+                    "filename": "views\\css\\style404.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "views\\images\\404.svg"
+                },
+                {
+                    "filename": "views\\images\\banner.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\body_bg.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\cat_icon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\category_bg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\f1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\f2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\f3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\footer_bg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\header_bg.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\img-sprite.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\img-sprite.psd",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\label_new.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\like.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\logo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\logo.psd",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\marker.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\marker1.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\mobile.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\order.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p4.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p5.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p6.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p7.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p8.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\payment.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic4.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic5.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic6.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic7.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic8.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic9.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\s1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\s2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\s3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\search.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\secure.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\tick1.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\wish.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\zoom.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\口水鸡.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\扁尖炖老鸭.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\手撕排骨.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\柠檬烤鱼.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\浓醇海鲜煲.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\炒空心菜.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\红烧牛腩.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\蒜香小龙虾.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\辣子鸡.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\铁板烧汁肥牛饭.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\阳澄湖大闸蟹.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\香辣猪手.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\麻辣串.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 6,
+                    "code": 185,
+                    "comment": 3,
+                    "filename": "views\\index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 5,
+                    "filename": "views\\js\\bootstrap.min.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "views\\js\\btn-numbox.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 134,
+                    "comment": 19,
+                    "filename": "views\\js\\easyResponsiveTabs.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 6,
+                    "filename": "views\\js\\jquery.etalage.min.js"
+                },
+                {
+                    "blank": 2079,
+                    "code": 6891,
+                    "comment": 1913,
+                    "filename": "views\\js\\jquery.js"
+                },
+                {
+                    "blank": 414,
+                    "code": 1385,
+                    "comment": 259,
+                    "filename": "views\\js\\jquery.magnific-popup.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "views\\js\\jquery.min.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 9,
+                    "filename": "views\\js\\jquery.vide.min.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 6,
+                    "filename": "views\\js\\jquery.waypoints.min.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 33,
+                    "comment": 2,
+                    "filename": "views\\js\\mine\\404Page.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 24,
+                    "comment": 1,
+                    "filename": "views\\js\\mine\\account.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 33,
+                    "comment": 1,
+                    "filename": "views\\js\\mine\\addcredit.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 161,
+                    "comment": 15,
+                    "filename": "views\\js\\mine\\basicLibrary.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "views\\js\\mine\\contact.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 103,
+                    "comment": 3,
+                    "filename": "views\\js\\mine\\index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 84,
+                    "comment": 2,
+                    "filename": "views\\js\\mine\\menu.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 69,
+                    "comment": 2,
+                    "filename": "views\\js\\mine\\myorder.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 28,
+                    "comment": 1,
+                    "filename": "views\\js\\mine\\register.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 60,
+                    "comment": 3,
+                    "filename": "views\\js\\mine\\single.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "views\\js\\modernizr-2.6.2.min.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 210,
+                    "comment": 3,
+                    "filename": "views\\menu.html"
+                },
+                {
+                    "blank": 6,
+                    "code": 193,
+                    "comment": 3,
+                    "filename": "views\\myorder.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 173,
+                    "comment": 3,
+                    "filename": "views\\register.html"
+                },
+                {
+                    "blank": 11,
+                    "code": 309,
+                    "comment": 7,
+                    "filename": "views\\single.html"
+                },
+                {
+                    "filename": "views\\video\\Crocodile.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\video\\Crocodile.mp4",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\video\\Crocodile.ogv",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\video\\Crocodile.webm",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "views\\video\\index.html"
+                }
+            ]
+        },
+        {
+            "version": "0.1.7",
+            "counttime": "2022-12-25 11:40:15",
+            "filesum": 113,
+            "codesum": 24352,
+            "commentsum": 2532,
+            "blanksum": 3289,
+            "filelist": [
+                {
+                    "blank": 10,
+                    "code": 40,
+                    "comment": 17,
+                    "filename": "app.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "db\\index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1531,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "router\\index.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 20,
+                    "comment": 2,
+                    "filename": "router\\main.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "router\\userinfo.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "router_handler\\index.js"
+                },
+                {
+                    "blank": 18,
+                    "code": 398,
+                    "comment": 104,
+                    "filename": "router_handler\\main.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 6,
+                    "filename": "router_handler\\userinfo.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 43,
+                    "comment": 3,
+                    "filename": "schema\\schema.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 49,
+                    "comment": 17,
+                    "filename": "views\\404Page.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 166,
+                    "comment": 3,
+                    "filename": "views\\account.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 167,
+                    "comment": 5,
+                    "filename": "views\\addcredit.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 170,
+                    "comment": 5,
+                    "filename": "views\\contact.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "views\\css\\alertmess.css"
+                },
+                {
+                    "blank": 522,
+                    "code": 2798,
+                    "comment": 31,
+                    "filename": "views\\css\\animate.css"
+                },
+                {
+                    "blank": 5,
+                    "code": 5772,
+                    "comment": 8,
+                    "filename": "views\\css\\bootstrap.css"
+                },
+                {
+                    "blank": 13,
+                    "code": 76,
+                    "comment": 0,
+                    "filename": "views\\css\\btn-numbox.css"
+                },
+                {
+                    "blank": 11,
+                    "code": 107,
+                    "comment": 28,
+                    "filename": "views\\css\\etalage.css"
+                },
+                {
+                    "blank": 45,
+                    "code": 294,
+                    "comment": 4,
+                    "filename": "views\\css\\magnific-popup.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "views\\css\\myorder.css"
+                },
+                {
+                    "blank": 7,
+                    "code": 2369,
+                    "comment": 21,
+                    "filename": "views\\css\\style.css"
+                },
+                {
+                    "blank": 20,
+                    "code": 99,
+                    "comment": 7,
+                    "filename": "views\\css\\style404.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "views\\images\\404.svg"
+                },
+                {
+                    "filename": "views\\images\\banner.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\body_bg.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\cat_icon.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\category_bg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\f1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\f2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\f3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\footer_bg.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\header_bg.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\img-sprite.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\img-sprite.psd",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\label_new.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\like.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\logo.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\logo.psd",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\marker.gif",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\marker1.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\mobile.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\order.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p4.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p5.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p6.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p7.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\p8.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\payment.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic4.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic5.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic6.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic7.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic8.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\pic9.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\s1.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\s2.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\s3.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\search.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\secure.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\tick1.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\wish.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\zoom.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\口水鸡.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\扁尖炖老鸭.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\手撕排骨.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\柠檬烤鱼.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\浓醇海鲜煲.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\炒空心菜.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\红烧牛腩.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\蒜香小龙虾.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\辣子鸡.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\铁板烧汁肥牛饭.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\阳澄湖大闸蟹.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\香辣猪手.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\images\\麻辣串.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 6,
+                    "code": 185,
+                    "comment": 3,
+                    "filename": "views\\index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 5,
+                    "filename": "views\\js\\bootstrap.min.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "views\\js\\btn-numbox.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 134,
+                    "comment": 19,
+                    "filename": "views\\js\\easyResponsiveTabs.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 30,
+                    "comment": 6,
+                    "filename": "views\\js\\jquery.etalage.min.js"
+                },
+                {
+                    "blank": 2079,
+                    "code": 6891,
+                    "comment": 1913,
+                    "filename": "views\\js\\jquery.js"
+                },
+                {
+                    "blank": 414,
+                    "code": 1385,
+                    "comment": 259,
+                    "filename": "views\\js\\jquery.magnific-popup.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "views\\js\\jquery.min.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 9,
+                    "filename": "views\\js\\jquery.vide.min.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 6,
+                    "filename": "views\\js\\jquery.waypoints.min.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 33,
+                    "comment": 2,
+                    "filename": "views\\js\\mine\\404Page.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 24,
+                    "comment": 1,
+                    "filename": "views\\js\\mine\\account.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 33,
+                    "comment": 1,
+                    "filename": "views\\js\\mine\\addcredit.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 161,
+                    "comment": 15,
+                    "filename": "views\\js\\mine\\basicLibrary.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "views\\js\\mine\\contact.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 103,
+                    "comment": 3,
+                    "filename": "views\\js\\mine\\index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 84,
+                    "comment": 2,
+                    "filename": "views\\js\\mine\\menu.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 69,
+                    "comment": 2,
+                    "filename": "views\\js\\mine\\myorder.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 28,
+                    "comment": 1,
+                    "filename": "views\\js\\mine\\register.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 60,
+                    "comment": 3,
+                    "filename": "views\\js\\mine\\single.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 3,
+                    "filename": "views\\js\\modernizr-2.6.2.min.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 210,
+                    "comment": 3,
+                    "filename": "views\\menu.html"
+                },
+                {
+                    "blank": 6,
+                    "code": 193,
+                    "comment": 3,
+                    "filename": "views\\myorder.html"
+                },
+                {
+                    "blank": 2,
+                    "code": 173,
+                    "comment": 3,
+                    "filename": "views\\register.html"
+                },
+                {
+                    "blank": 11,
+                    "code": 309,
+                    "comment": 7,
+                    "filename": "views\\single.html"
+                },
+                {
+                    "filename": "views\\video\\Crocodile.jpg",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\video\\Crocodile.mp4",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\video\\Crocodile.ogv",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "views\\video\\Crocodile.webm",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "views\\video\\index.html"
+                }
+            ]
+        }
+    ]
+}

@@ -2,7 +2,7 @@ import { getUrlParam, init, ignoreErrorAttr, changeFoodsNumber } from "./basicLi
 
 function init_myorder(username, email) {
     // 分类信息
-    $.get('http://127.0.0.1:4002/api/categoryInfo', async function (data) {
+    $.get('http://127.0.0.1:4003/api/categoryInfo', async function (data) {
         if (data.status === 0) {
             const typeData = data.data;
             for (var key = 0; key < ignoreErrorAttr(typeData, 'length'); key++) {
@@ -19,7 +19,7 @@ function init_myorder(username, email) {
         }
     })
     // 获取订单信息
-    $.get('http://127.0.0.1:4002/api/orderInfo', { email: email }, async function (data) {
+    $.get('http://127.0.0.1:4003/api/orderInfo', { email: email }, async function (data) {
         if (data.status === 0) {
             const foodData = data.data;
             for (var key = 0; key < ignoreErrorAttr(foodData, 'length'); key++) {
@@ -42,7 +42,7 @@ function init_myorder(username, email) {
 								</li>
 							</ul>
 							<div class="price" style="font-size: 16px;"><span style="color:red;font-weight: bold;">Price:
-								</span><span class="actual" id="singleTotalPrice_${foodData[key].id}"> &nbsp&nbsp&nbsp$&nbsp${(foodData[key].price * foodData[key].foodNumber).toFixed(2)}</span></div>
+								</span><span class="actual" id="singleTotalPrice_${foodData[key].id}"> &nbsp&nbsp&nbsp&nbsp${(foodData[key].price * foodData[key].foodNumber).toFixed(2)} 元</span></div>
 							<div class="clearfix"> </div>
 						</ul>
                 `);

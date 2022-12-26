@@ -1,0 +1,250 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2022-12-22 18:42:03
+count workspace : e:\express服务器
+total files : 113
+total code lines : 24285
+total comment lines : 2531
+total blank lines : 3289
+
+app.js, code is 40, comment is 17, blank is 10.
+db\index.js, code is 9, comment is 0, blank is 2.
+package-lock.json, code is 1531, comment is 0, blank is 0.
+package.json, code is 13, comment is 0, blank is 0.
+router\index.js, code is 13, comment is 0, blank is 2.
+router\main.js, code is 20, comment is 2, blank is 3.
+router\userinfo.js, code is 5, comment is 0, blank is 2.
+router_handler\index.js, code is 27, comment is 0, blank is 9.
+router_handler\main.js, code is 331, comment is 103, blank is 18.
+router_handler\userinfo.js, code is 15, comment is 6, blank is 1.
+schema\schema.js, code is 43, comment is 3, blank is 5.
+views\404Page.html, code is 49, comment is 17, blank is 17.
+views\account.html, code is 166, comment is 3, blank is 2.
+views\addcredit.html, code is 167, comment is 5, blank is 2.
+views\contact.html, code is 170, comment is 5, blank is 2.
+views\css\alertmess.css, code is 13, comment is 0, blank is 0.
+views\css\animate.css, code is 2798, comment is 31, blank is 522.
+views\css\bootstrap.css, code is 5772, comment is 8, blank is 5.
+views\css\btn-numbox.css, code is 76, comment is 0, blank is 13.
+views\css\etalage.css, code is 107, comment is 28, blank is 11.
+views\css\magnific-popup.css, code is 294, comment is 4, blank is 45.
+views\css\myorder.css, code is 12, comment is 0, blank is 2.
+views\css\style.css, code is 2369, comment is 21, blank is 7.
+views\css\style404.css, code is 99, comment is 7, blank is 20.
+views\images\404.svg, code is 10, comment is 1, blank is 0.
+views\images\banner.jpg, it is a binary file.
+views\images\body_bg.jpg, it is a binary file.
+views\images\cat_icon.png, it is a binary file.
+views\images\category_bg.png, it is a binary file.
+views\images\f1.jpg, it is a binary file.
+views\images\f2.jpg, it is a binary file.
+views\images\f3.jpg, it is a binary file.
+views\images\footer_bg.png, it is a binary file.
+views\images\header_bg.jpg, it is a binary file.
+views\images\img-sprite.png, it is a binary file.
+views\images\img-sprite.psd, it is a binary file.
+views\images\label_new.png, it is a binary file.
+views\images\like.png, it is a binary file.
+views\images\logo.png, it is a binary file.
+views\images\logo.psd, it is a binary file.
+views\images\marker.gif, it is a binary file.
+views\images\marker1.png, it is a binary file.
+views\images\mobile.png, it is a binary file.
+views\images\order.png, it is a binary file.
+views\images\p1.jpg, it is a binary file.
+views\images\p2.jpg, it is a binary file.
+views\images\p3.jpg, it is a binary file.
+views\images\p4.jpg, it is a binary file.
+views\images\p5.jpg, it is a binary file.
+views\images\p6.jpg, it is a binary file.
+views\images\p7.jpg, it is a binary file.
+views\images\p8.jpg, it is a binary file.
+views\images\payment.png, it is a binary file.
+views\images\pic1.jpg, it is a binary file.
+views\images\pic2.jpg, it is a binary file.
+views\images\pic3.jpg, it is a binary file.
+views\images\pic4.jpg, it is a binary file.
+views\images\pic5.jpg, it is a binary file.
+views\images\pic6.jpg, it is a binary file.
+views\images\pic7.jpg, it is a binary file.
+views\images\pic8.jpg, it is a binary file.
+views\images\pic9.jpg, it is a binary file.
+views\images\s1.jpg, it is a binary file.
+views\images\s2.jpg, it is a binary file.
+views\images\s3.jpg, it is a binary file.
+views\images\search.png, it is a binary file.
+views\images\secure.png, it is a binary file.
+views\images\tick1.png, it is a binary file.
+views\images\wish.png, it is a binary file.
+views\images\zoom.png, it is a binary file.
+views\images\口水鸡.jpg, it is a binary file.
+views\images\扁尖炖老鸭.jpg, it is a binary file.
+views\images\手撕排骨.jpg, it is a binary file.
+views\images\柠檬烤鱼.jpg, it is a binary file.
+views\images\浓醇海鲜煲.jpg, it is a binary file.
+views\images\炒空心菜.jpg, it is a binary file.
+views\images\红烧牛腩.jpg, it is a binary file.
+views\images\蒜香小龙虾.jpg, it is a binary file.
+views\images\辣子鸡.jpg, it is a binary file.
+views\images\铁板烧汁肥牛饭.jpg, it is a binary file.
+views\images\阳澄湖大闸蟹.jpg, it is a binary file.
+views\images\香辣猪手.jpg, it is a binary file.
+views\images\麻辣串.jpg, it is a binary file.
+views\index.html, code is 185, comment is 3, blank is 6.
+views\js\bootstrap.min.js, code is 1, comment is 5, blank is 0.
+views\js\btn-numbox.js, code is 14, comment is 0, blank is 2.
+views\js\easyResponsiveTabs.js, code is 134, comment is 19, blank is 20.
+views\js\jquery.etalage.min.js, code is 30, comment is 6, blank is 1.
+views\js\jquery.js, code is 6891, comment is 1913, blank is 2079.
+views\js\jquery.magnific-popup.js, code is 1385, comment is 259, blank is 414.
+views\js\jquery.min.js, code is 1, comment is 1, blank is 0.
+views\js\jquery.vide.min.js, code is 1, comment is 9, blank is 0.
+views\js\jquery.waypoints.min.js, code is 1, comment is 6, blank is 0.
+views\js\mine\404Page.js, code is 33, comment is 2, blank is 13.
+views\js\mine\account.js, code is 24, comment is 1, blank is 3.
+views\js\mine\addcredit.js, code is 33, comment is 1, blank is 3.
+views\js\mine\basicLibrary.js, code is 161, comment is 15, blank is 12.
+views\js\mine\contact.js, code is 4, comment is 0, blank is 1.
+views\js\mine\index.js, code is 103, comment is 3, blank is 2.
+views\js\mine\menu.js, code is 84, comment is 2, blank is 4.
+views\js\mine\myorder.js, code is 69, comment is 2, blank is 2.
+views\js\mine\register.js, code is 28, comment is 1, blank is 2.
+views\js\mine\single.js, code is 60, comment is 3, blank is 3.
+views\js\modernizr-2.6.2.min.js, code is 1, comment is 3, blank is 0.
+views\menu.html, code is 210, comment is 3, blank is 2.
+views\myorder.html, code is 193, comment is 3, blank is 6.
+views\register.html, code is 173, comment is 3, blank is 2.
+views\single.html, code is 309, comment is 7, blank is 11.
+views\video\Crocodile.jpg, it is a binary file.
+views\video\Crocodile.mp4, it is a binary file.
+views\video\Crocodile.ogv, it is a binary file.
+views\video\Crocodile.webm, it is a binary file.
+views\video\index.html, code is 8, comment is 0, blank is 1.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2022-12-25 11:40:15
+count workspace : e:\express服务器
+total files : 113
+total code lines : 24352
+total comment lines : 2532
+total blank lines : 3289
+
+app.js, code is 40, comment is 17, blank is 10.
+db\index.js, code is 9, comment is 0, blank is 2.
+package-lock.json, code is 1531, comment is 0, blank is 0.
+package.json, code is 13, comment is 0, blank is 0.
+router\index.js, code is 13, comment is 0, blank is 2.
+router\main.js, code is 20, comment is 2, blank is 3.
+router\userinfo.js, code is 5, comment is 0, blank is 2.
+router_handler\index.js, code is 27, comment is 0, blank is 9.
+router_handler\main.js, code is 398, comment is 104, blank is 18.
+router_handler\userinfo.js, code is 15, comment is 6, blank is 1.
+schema\schema.js, code is 43, comment is 3, blank is 5.
+views\404Page.html, code is 49, comment is 17, blank is 17.
+views\account.html, code is 166, comment is 3, blank is 2.
+views\addcredit.html, code is 167, comment is 5, blank is 2.
+views\contact.html, code is 170, comment is 5, blank is 2.
+views\css\alertmess.css, code is 13, comment is 0, blank is 0.
+views\css\animate.css, code is 2798, comment is 31, blank is 522.
+views\css\bootstrap.css, code is 5772, comment is 8, blank is 5.
+views\css\btn-numbox.css, code is 76, comment is 0, blank is 13.
+views\css\etalage.css, code is 107, comment is 28, blank is 11.
+views\css\magnific-popup.css, code is 294, comment is 4, blank is 45.
+views\css\myorder.css, code is 12, comment is 0, blank is 2.
+views\css\style.css, code is 2369, comment is 21, blank is 7.
+views\css\style404.css, code is 99, comment is 7, blank is 20.
+views\images\404.svg, code is 10, comment is 1, blank is 0.
+views\images\banner.jpg, it is a binary file.
+views\images\body_bg.jpg, it is a binary file.
+views\images\cat_icon.png, it is a binary file.
+views\images\category_bg.png, it is a binary file.
+views\images\f1.jpg, it is a binary file.
+views\images\f2.jpg, it is a binary file.
+views\images\f3.jpg, it is a binary file.
+views\images\footer_bg.png, it is a binary file.
+views\images\header_bg.jpg, it is a binary file.
+views\images\img-sprite.png, it is a binary file.
+views\images\img-sprite.psd, it is a binary file.
+views\images\label_new.png, it is a binary file.
+views\images\like.png, it is a binary file.
+views\images\logo.png, it is a binary file.
+views\images\logo.psd, it is a binary file.
+views\images\marker.gif, it is a binary file.
+views\images\marker1.png, it is a binary file.
+views\images\mobile.png, it is a binary file.
+views\images\order.png, it is a binary file.
+views\images\p1.jpg, it is a binary file.
+views\images\p2.jpg, it is a binary file.
+views\images\p3.jpg, it is a binary file.
+views\images\p4.jpg, it is a binary file.
+views\images\p5.jpg, it is a binary file.
+views\images\p6.jpg, it is a binary file.
+views\images\p7.jpg, it is a binary file.
+views\images\p8.jpg, it is a binary file.
+views\images\payment.png, it is a binary file.
+views\images\pic1.jpg, it is a binary file.
+views\images\pic2.jpg, it is a binary file.
+views\images\pic3.jpg, it is a binary file.
+views\images\pic4.jpg, it is a binary file.
+views\images\pic5.jpg, it is a binary file.
+views\images\pic6.jpg, it is a binary file.
+views\images\pic7.jpg, it is a binary file.
+views\images\pic8.jpg, it is a binary file.
+views\images\pic9.jpg, it is a binary file.
+views\images\s1.jpg, it is a binary file.
+views\images\s2.jpg, it is a binary file.
+views\images\s3.jpg, it is a binary file.
+views\images\search.png, it is a binary file.
+views\images\secure.png, it is a binary file.
+views\images\tick1.png, it is a binary file.
+views\images\wish.png, it is a binary file.
+views\images\zoom.png, it is a binary file.
+views\images\口水鸡.jpg, it is a binary file.
+views\images\扁尖炖老鸭.jpg, it is a binary file.
+views\images\手撕排骨.jpg, it is a binary file.
+views\images\柠檬烤鱼.jpg, it is a binary file.
+views\images\浓醇海鲜煲.jpg, it is a binary file.
+views\images\炒空心菜.jpg, it is a binary file.
+views\images\红烧牛腩.jpg, it is a binary file.
+views\images\蒜香小龙虾.jpg, it is a binary file.
+views\images\辣子鸡.jpg, it is a binary file.
+views\images\铁板烧汁肥牛饭.jpg, it is a binary file.
+views\images\阳澄湖大闸蟹.jpg, it is a binary file.
+views\images\香辣猪手.jpg, it is a binary file.
+views\images\麻辣串.jpg, it is a binary file.
+views\index.html, code is 185, comment is 3, blank is 6.
+views\js\bootstrap.min.js, code is 1, comment is 5, blank is 0.
+views\js\btn-numbox.js, code is 14, comment is 0, blank is 2.
+views\js\easyResponsiveTabs.js, code is 134, comment is 19, blank is 20.
+views\js\jquery.etalage.min.js, code is 30, comment is 6, blank is 1.
+views\js\jquery.js, code is 6891, comment is 1913, blank is 2079.
+views\js\jquery.magnific-popup.js, code is 1385, comment is 259, blank is 414.
+views\js\jquery.min.js, code is 1, comment is 1, blank is 0.
+views\js\jquery.vide.min.js, code is 1, comment is 9, blank is 0.
+views\js\jquery.waypoints.min.js, code is 1, comment is 6, blank is 0.
+views\js\mine\404Page.js, code is 33, comment is 2, blank is 13.
+views\js\mine\account.js, code is 24, comment is 1, blank is 3.
+views\js\mine\addcredit.js, code is 33, comment is 1, blank is 3.
+views\js\mine\basicLibrary.js, code is 161, comment is 15, blank is 12.
+views\js\mine\contact.js, code is 4, comment is 0, blank is 1.
+views\js\mine\index.js, code is 103, comment is 3, blank is 2.
+views\js\mine\menu.js, code is 84, comment is 2, blank is 4.
+views\js\mine\myorder.js, code is 69, comment is 2, blank is 2.
+views\js\mine\register.js, code is 28, comment is 1, blank is 2.
+views\js\mine\single.js, code is 60, comment is 3, blank is 3.
+views\js\modernizr-2.6.2.min.js, code is 1, comment is 3, blank is 0.
+views\menu.html, code is 210, comment is 3, blank is 2.
+views\myorder.html, code is 193, comment is 3, blank is 6.
+views\register.html, code is 173, comment is 3, blank is 2.
+views\single.html, code is 309, comment is 7, blank is 11.
+views\video\Crocodile.jpg, it is a binary file.
+views\video\Crocodile.mp4, it is a binary file.
+views\video\Crocodile.ogv, it is a binary file.
+views\video\Crocodile.webm, it is a binary file.
+views\video\index.html, code is 8, comment is 0, blank is 1.
+===============================================================================

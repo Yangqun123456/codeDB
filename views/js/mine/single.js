@@ -9,7 +9,7 @@ function changeImagePath(path) {
 
 function init_single(username, email, food_id) {
     // 分类信息
-    $.get('http://127.0.0.1:4002/api/categoryInfo', async function (data) {
+    $.get('http://127.0.0.1:4003/api/categoryInfo', async function (data) {
         if (data.status === 0) {
             const typeData = data.data;
             for (var key = 0; key < ignoreErrorAttr(typeData, 'length'); key++) {
@@ -26,14 +26,14 @@ function init_single(username, email, food_id) {
         } else alert(data.message);
     });
     // 食物信息
-    $.get('http://127.0.0.1:4002/api/idFood', { food_id: food_id }, async function (data) {
+    $.get('http://127.0.0.1:4003/api/idFood', { food_id: food_id }, async function (data) {
         if (data.status === 0) {
             const foodData = data.data;
             changeImagePath(foodData.picturePath);
             $('#foodName').html(foodData.name);
             $('#foodDetails').html(foodData.detail);
-            if (foodData.original_price !== null) $('#original_price').html(`原价:  ${foodData.original_price}`);
-            $('#now_price').html(`现价: $ ${foodData.price}`);
+            if (foodData.original_price !== null) $('#original_price').html(`原价:  ${foodData.original_price} 元`);
+            $('#now_price').html(`现价:  ${foodData.price} 元`);
             $('#foodDetailsContent').html(foodData.detail);
         } else alert(data.message);
     })
@@ -43,7 +43,7 @@ function init_single(username, email, food_id) {
         else {
             const food_number = parseInt($('#input-num').val());
             if (food_number !== 0) {
-                $.post('http://127.0.0.1:4002/api/buyFoods', {
+                $.post('http://127.0.0.1:4003/api/buyFoods', {
                     email: email,
                     food_id: food_id,
                     food_number: food_number,

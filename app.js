@@ -45,7 +45,7 @@ app.use('/api', mainRounter);
 // 导入并使用用户信息的路由模块
 const userInfoRounter = require('./router/userinfo')
 app.use('/userinfo', userInfoRounter);
-
+// 导入404页面路由
 app.use((req, res, next) => {
     res.render('404Page.html')
 })
@@ -61,6 +61,6 @@ app.use((err, req, res, next) => {
 })
 
 // 启动服务器
-app.listen(4002, () => {
-    console.log(`api server running at http://127.0.0.1:4002`)
+app.listen(4003, () => {
+    console.log(`api server running at http://127.0.0.1:4003`)
 })
